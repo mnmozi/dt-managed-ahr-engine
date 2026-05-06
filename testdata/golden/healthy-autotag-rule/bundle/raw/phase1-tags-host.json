@@ -1,0 +1,8 @@
+{
+  "totalCount": 2,
+  "matchedEntitiesCount": 8,
+  "tags": [
+    { "context": "CONTEXTLESS", "key": "team", "value": "payments", "stringRepresentation": "team:payments" },
+    { "context": "ENVIRONMENT", "key": "env", "value": "prod", "stringRepresentation": "env:prod" }
+  ]
+}

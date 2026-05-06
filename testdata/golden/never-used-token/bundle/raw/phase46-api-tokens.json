@@ -1,0 +1,45 @@
+{
+  "totalCount": 4,
+  "apiTokens": [
+    {
+      "id": "tok-active",
+      "name": "ci-deploy-token",
+      "owner": "alice@example.com",
+      "enabled": true,
+      "creationDate": "2024-01-15T10:00:00Z",
+      "lastUsedDate": "2026-04-29T08:30:00Z",
+      "modifiedDate": "2024-01-15T10:00:00Z",
+      "scopes": ["WriteConfig", "entities.read"]
+    },
+    {
+      "id": "tok-stale-readonly",
+      "name": "old-readonly-integration",
+      "owner": "bob@example.com",
+      "enabled": true,
+      "creationDate": "2023-03-10T12:00:00Z",
+      "lastUsedDate": null,
+      "modifiedDate": "2023-03-10T12:00:00Z",
+      "scopes": ["entities.read", "metrics.read"]
+    },
+    {
+      "id": "tok-stale-writeconfig",
+      "name": "abandoned-admin-token",
+      "owner": "former-employee@example.com",
+      "enabled": true,
+      "creationDate": "2022-09-01T09:00:00Z",
+      "lastUsedDate": null,
+      "modifiedDate": "2022-09-01T09:00:00Z",
+      "scopes": ["WriteConfig", "settings.write", "credentialVault.write"]
+    },
+    {
+      "id": "tok-fresh-unused",
+      "name": "rotation-pending-token",
+      "owner": "carol@example.com",
+      "enabled": true,
+      "creationDate": "2026-04-25T08:00:00Z",
+      "lastUsedDate": null,
+      "modifiedDate": "2026-04-25T08:00:00Z",
+      "scopes": ["entities.read"]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "totalCount": 4,
+  "hosts": [
+    {
+      "hostInfo": { "hostName": "fullstack-with-logs", "entityId": "HOST-AAAA", "osType": "LINUX" },
+      "monitoringType": "FULL_STACK",
+      "modules": [
+        { "moduleType": "OS", "enabled": true, "version": "1.299" },
+        { "moduleType": "LOG_ANALYTICS", "enabled": true, "version": "1.299" }
+      ],
+      "currentVersion": "1.299.123"
+    },
+    {
+      "hostInfo": { "hostName": "fullstack-no-log-module", "entityId": "HOST-BBBB", "osType": "LINUX" },
+      "monitoringType": "FULL_STACK",
+      "modules": [
+        { "moduleType": "OS", "enabled": true, "version": "1.299" }
+      ],
+      "currentVersion": "1.299.123"
+    },
+    {
+      "hostInfo": { "hostName": "fullstack-log-disabled", "entityId": "HOST-CCCC", "osType": "LINUX" },
+      "monitoringType": "FULL_STACK",
+      "modules": [
+        { "moduleType": "OS", "enabled": true, "version": "1.299" },
+        { "moduleType": "LOG_ANALYTICS", "enabled": false, "version": "1.299" }
+      ],
+      "currentVersion": "1.299.123"
+    },
+    {
+      "hostInfo": { "hostName": "infrastructure-only", "entityId": "HOST-DDDD", "osType": "LINUX" },
+      "monitoringType": "INFRASTRUCTURE",
+      "modules": [
+        { "moduleType": "OS", "enabled": true, "version": "1.299" }
+      ],
+      "currentVersion": "1.299.123"
+    }
+  ]
+}

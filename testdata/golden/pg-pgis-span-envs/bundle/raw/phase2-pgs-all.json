@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "entityId": "PROCESS_GROUP-MIXED",   "displayName": "checkout-api",  "type": "PROCESS_GROUP" },
+    { "entityId": "PROCESS_GROUP-CLEAN",   "displayName": "payments-api",  "type": "PROCESS_GROUP" }
+  ],
+  "totalReturned": 2
+}

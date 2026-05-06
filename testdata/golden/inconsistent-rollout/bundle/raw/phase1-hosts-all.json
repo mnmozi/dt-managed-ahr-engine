@@ -1,0 +1,41 @@
+{
+  "items": [
+    { "entityId": "HOST-1",  "displayName": "host01", "type": "HOST", "tags": [
+      {"context":"ENVIRONMENT","key":"env","value":"prod"},
+      {"context":"CONTEXTLESS","key":"team","value":"payments"}
+    ], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-2",  "displayName": "host02", "type": "HOST", "tags": [
+      {"context":"ENVIRONMENT","key":"env","value":"prod"},
+      {"context":"CONTEXTLESS","key":"team","value":"payments"}
+    ], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-3",  "displayName": "host03", "type": "HOST", "tags": [
+      {"context":"ENVIRONMENT","key":"env","value":"prod"},
+      {"context":"CONTEXTLESS","key":"team","value":"payments"}
+    ], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-4",  "displayName": "host04", "type": "HOST", "tags": [
+      {"context":"ENVIRONMENT","key":"env","value":"prod"},
+      {"context":"CONTEXTLESS","key":"team","value":"payments"}
+    ], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-5",  "displayName": "host05", "type": "HOST", "tags": [
+      {"context":"ENVIRONMENT","key":"env","value":"prod"},
+      {"context":"CONTEXTLESS","key":"team","value":"payments"}
+    ], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-6",  "displayName": "host06", "type": "HOST", "tags": [
+      {"context":"ENVIRONMENT","key":"env","value":"prod"}
+    ], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-7",  "displayName": "host07", "type": "HOST", "tags": [
+      {"context":"ENVIRONMENT","key":"env","value":"prod"}
+    ], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-8",  "displayName": "host08", "type": "HOST", "tags": [
+      {"context":"ENVIRONMENT","key":"env","value":"prod"}
+    ], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-9",  "displayName": "host09", "type": "HOST", "tags": [
+      {"context":"ENVIRONMENT","key":"env","value":"prod"}
+    ], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-10", "displayName": "host10", "type": "HOST", "tags": [
+      {"context":"ENVIRONMENT","key":"env","value":"prod"},
+      {"context":"CONTEXTLESS","key":"experimental","value":"yes"}
+    ], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} }
+  ],
+  "totalReturned": 10
+}

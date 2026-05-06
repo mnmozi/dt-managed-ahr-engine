@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "entityId": "HOST-1", "displayName": "prod01", "type": "HOST", "tags": [], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-2", "displayName": "prod02", "type": "HOST", "tags": [], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-3", "displayName": "prod03", "type": "HOST", "tags": [], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-LONELY", "displayName": "decom-host", "type": "HOST", "tags": [], "properties": {"hostGroupId": "HOST_GROUP-DECOM"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-DECOM","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-X", "displayName": "ad-hoc", "type": "HOST", "tags": [], "properties": {"hostGroupId": "HOST_GROUP-ADHOC"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-ADHOC","type":"HOST_GROUP"}]} }
+  ],
+  "totalReturned": 5
+}

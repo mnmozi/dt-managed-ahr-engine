@@ -1,0 +1,31 @@
+{
+  "totalCount": 2,
+  "items": [
+    {
+      "objectId": "vu9U3hXa3q0AAAABAAdidWlsdGluOnRhZ3MuYXV0by10YWdnaW5nAAZ0ZW5hbnQABnRlbmFudAAkOTk5OTk5OTktZGVhZC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxvu9U3hXa3q0",
+      "schemaId": "builtin:tags.auto-tagging",
+      "scope": "environment",
+      "modified": 1714291200000,
+      "value": {
+        "name": "decommissioned-team",
+        "description": "rule for a team that no longer exists",
+        "rules": [
+          {"type": "ME", "valueFormat": "decommissioned-team"}
+        ]
+      }
+    },
+    {
+      "objectId": "vu9U3hXa3q0AAAABAAdidWlsdGluOnRhZ3MuYXV0by10YWdnaW5nAAZ0ZW5hbnQABnRlbmFudAAkMTExMTExMTEtbGl2ZS0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxvu9U3hXa3q0",
+      "schemaId": "builtin:tags.auto-tagging",
+      "scope": "environment",
+      "modified": 1714291200000,
+      "value": {
+        "name": "team",
+        "description": "applied team tag",
+        "rules": [
+          {"type": "ME", "valueFormat": "{Host:HostGroup}"}
+        ]
+      }
+    }
+  ]
+}

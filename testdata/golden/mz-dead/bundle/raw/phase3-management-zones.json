@@ -1,0 +1,26 @@
+{
+  "totalCount": 3,
+  "items": [
+    {
+      "objectId": "vu9U3hXa3q0AAAABAAdidWlsdGluOm1hbmFnZW1lbnQtem9uZXMAAQ",
+      "schemaId": "builtin:management-zones",
+      "scope": "environment",
+      "modified": 1714291200000,
+      "value": { "name": "production", "description": "live env", "rules": [] }
+    },
+    {
+      "objectId": "vu9U3hXa3q0AAAABAAdidWlsdGluOm1hbmFnZW1lbnQtem9uZXMAAg",
+      "schemaId": "builtin:management-zones",
+      "scope": "environment",
+      "modified": 1714291200000,
+      "value": { "name": "decommissioned-2022-DC", "description": "lift-and-shift project, never updated", "rules": [] }
+    },
+    {
+      "objectId": "vu9U3hXa3q0AAAABAAdidWlsdGluOm1hbmFnZW1lbnQtem9uZXMAAw",
+      "schemaId": "builtin:management-zones",
+      "scope": "environment",
+      "modified": 1714291200000,
+      "value": { "name": "team-payments", "description": "payments squad scope", "rules": [] }
+    }
+  ]
+}

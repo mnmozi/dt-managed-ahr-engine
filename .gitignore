@@ -1,0 +1,14 @@
+# Built binary at repo root (anchored so cmd/dt-ahr-engine/ stays tracked)
+/dt-ahr-engine
+*.exe
+*.test
+*.out
+.idea/
+.vscode/
+.DS_Store
+
+# Generated outputs (per-customer findings should never be committed)
+findings.json
+report.md
+out/
+reports/

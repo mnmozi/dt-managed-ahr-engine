@@ -1,0 +1,18 @@
+{
+  "totalCount": 1,
+  "items": [
+    {
+      "objectId": "vu9U3hXa3q0AAAABAAdidWlsdGluOnRhZ3MuYXV0by10YWdnaW5nAAZ0ZW5hbnQABnRlbmFudAAkb3ZlcmJyb2FkLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMQ",
+      "schemaId": "builtin:tags.auto-tagging",
+      "scope": "environment",
+      "modified": 1714291200000,
+      "value": {
+        "name": "monitored",
+        "description": "tag everything that's monitored — likely overbroad",
+        "rules": [
+          { "type": "ME", "valueFormat": "yes" }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "totalCount": 4,
+  "matchedEntitiesCount": 12,
+  "tags": [
+    { "context": "CONTEXTLESS", "key": "team", "value": "payments", "stringRepresentation": "team:payments" },
+    { "context": "CONTEXTLESS", "key": "team", "value": "checkout", "stringRepresentation": "team:checkout" },
+    { "context": "ENVIRONMENT", "key": "env", "value": "prod", "stringRepresentation": "env:prod" },
+    { "context": "ENVIRONMENT", "key": "env", "value": "staging", "stringRepresentation": "env:staging" }
+  ]
+}

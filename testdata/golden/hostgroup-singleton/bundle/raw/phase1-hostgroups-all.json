@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "entityId": "HOST_GROUP-PROD", "displayName": "prod-cluster", "type": "HOST_GROUP" },
+    { "entityId": "HOST_GROUP-DECOM", "displayName": "decommissioned-prod-2022", "type": "HOST_GROUP" },
+    { "entityId": "HOST_GROUP-ADHOC", "displayName": "ad-hoc-debug", "type": "HOST_GROUP" }
+  ],
+  "totalReturned": 3
+}

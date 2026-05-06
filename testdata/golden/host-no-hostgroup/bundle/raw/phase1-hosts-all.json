@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "entityId": "HOST-AAAA", "displayName": "good-host-1", "type": "HOST", "tags": [], "properties": {"hostGroupId": "HOST_GROUP-PROD"}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-BBBB", "displayName": "good-host-2", "type": "HOST", "tags": [], "properties": {}, "toRelationships": {"isInstanceOf":[{"id":"HOST_GROUP-PROD","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-CCCC", "displayName": "orphan-host-1", "type": "HOST", "tags": [], "properties": {}, "toRelationships": {} },
+    { "entityId": "HOST-DDDD", "displayName": "orphan-host-2", "type": "HOST", "tags": [], "properties": {} }
+  ],
+  "totalReturned": 4
+}

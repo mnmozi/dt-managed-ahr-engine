@@ -1,0 +1,13 @@
+{
+  "items": [
+    { "entityId": "HOST-1", "displayName": "h1", "type": "HOST", "tags": [],
+      "managementZones": [{"id":"-100","name":"production"},{"id":"-200","name":"team-payments"}],
+      "properties": {"hostGroupId":"HG-1"},
+      "toRelationships": {"isInstanceOf":[{"id":"HG-1","type":"HOST_GROUP"}]} },
+    { "entityId": "HOST-2", "displayName": "h2", "type": "HOST", "tags": [],
+      "managementZones": [{"id":"-100","name":"production"}],
+      "properties": {"hostGroupId":"HG-1"},
+      "toRelationships": {"isInstanceOf":[{"id":"HG-1","type":"HOST_GROUP"}]} }
+  ],
+  "totalReturned": 2
+}

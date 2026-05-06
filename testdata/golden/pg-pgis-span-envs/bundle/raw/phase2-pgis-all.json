@@ -1,0 +1,30 @@
+{
+  "items": [
+    {
+      "entityId": "PROCESS_GROUP_INSTANCE-M1", "displayName": "checkout-api/host-prod-1", "type": "PROCESS_GROUP_INSTANCE",
+      "tags": [{"context":"ENVIRONMENT","key":"env","value":"prod"}],
+      "toRelationships": {"isInstanceOf":[{"id":"PROCESS_GROUP-MIXED","type":"PROCESS_GROUP"}]}
+    },
+    {
+      "entityId": "PROCESS_GROUP_INSTANCE-M2", "displayName": "checkout-api/host-prod-2", "type": "PROCESS_GROUP_INSTANCE",
+      "tags": [{"context":"ENVIRONMENT","key":"env","value":"prod"}],
+      "toRelationships": {"isInstanceOf":[{"id":"PROCESS_GROUP-MIXED","type":"PROCESS_GROUP"}]}
+    },
+    {
+      "entityId": "PROCESS_GROUP_INSTANCE-M3", "displayName": "checkout-api/host-staging-1", "type": "PROCESS_GROUP_INSTANCE",
+      "tags": [{"context":"ENVIRONMENT","key":"env","value":"staging"}],
+      "toRelationships": {"isInstanceOf":[{"id":"PROCESS_GROUP-MIXED","type":"PROCESS_GROUP"}]}
+    },
+    {
+      "entityId": "PROCESS_GROUP_INSTANCE-C1", "displayName": "payments-api/host-prod-1", "type": "PROCESS_GROUP_INSTANCE",
+      "tags": [{"context":"ENVIRONMENT","key":"env","value":"prod"}],
+      "toRelationships": {"isInstanceOf":[{"id":"PROCESS_GROUP-CLEAN","type":"PROCESS_GROUP"}]}
+    },
+    {
+      "entityId": "PROCESS_GROUP_INSTANCE-C2", "displayName": "payments-api/host-prod-2", "type": "PROCESS_GROUP_INSTANCE",
+      "tags": [{"context":"ENVIRONMENT","key":"env","value":"prod"}],
+      "toRelationships": {"isInstanceOf":[{"id":"PROCESS_GROUP-CLEAN","type":"PROCESS_GROUP"}]}
+    }
+  ],
+  "totalReturned": 5
+}
