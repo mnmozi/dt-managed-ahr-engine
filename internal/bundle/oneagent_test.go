@@ -8,7 +8,7 @@ import (
 // Shape served by /api/v1/oneagents?includeDetails=true on Managed 1.350.7
 // (trimmed): no hostName, no per-module enabled flag — instances[] instead.
 const v1OneAgentsJSON = `{"hosts":[{
-  "hostInfo":{"displayName":"ip-172-28-199-13.eu-central-1.compute.internal","entityId":"HOST-1","osType":"LINUX"},
+  "hostInfo":{"displayName":"ip-10-0-0-3.ec2.internal","entityId":"HOST-1","osType":"LINUX"},
   "monitoringType":"FULL_STACK",
   "modules":[
     {"moduleType":"LOG_ANALYTICS","instances":[{"instanceName":"oneagentloganalytics","moduleVersion":"1.345.68.20260903-162827","faultyVersion":false,"active":true}]},
@@ -21,7 +21,7 @@ func TestOneAgent_V1ModuleShapeFoldsIntoEnabled(t *testing.T) {
 		t.Fatalf("unmarshal: %v", err)
 	}
 	oa := resp.Hosts[0]
-	if oa.HostInfo.HostName != "ip-172-28-199-13.eu-central-1.compute.internal" {
+	if oa.HostInfo.HostName != "ip-10-0-0-3.ec2.internal" {
 		t.Errorf("hostName should fall back to displayName, got %q", oa.HostInfo.HostName)
 	}
 	if !oa.HasEnabledLogModule() {

@@ -1,6 +1,6 @@
 {
   "hosts": [
-    { "id": "HOST-VM", "displayName": "ip-172-28-36-37.eu-central-1.compute.internal" }
+    { "id": "HOST-VM", "displayName": "ip-10-0-0-2.ec2.internal" }
   ],
   "processGroups": [
     {
@@ -27,7 +27,7 @@
           { "key": "EXE_PATH", "value": "/usr/bin/python3" },
           { "key": "EXE_NAME", "value": "python3" }
         ],
-        "awsNameTag": "kargo-tariff-vm",
+        "awsNameTag": "shop-tariff-vm",
         "softwareTechnologies": [ { "type": "PYTHON" } ]
       }
     }
@@ -55,7 +55,7 @@
       "endpoints": [
         "/tariff/quote",
         "/tariff/list",
-        "http://172.28.12.164:7000/tariff/events",
+        "http://10.0.0.5:7000/tariff/events",
         "/healthz"
       ]
     }

@@ -38,9 +38,9 @@
         },
         {
           "source": "aws.name-tag",
-          "name": "kargo-tariff-vm",
+          "name": "shop-tariff-vm",
           "confidence": 0.65,
-          "evidence": "awsNameTag=kargo-tariff-vm"
+          "evidence": "awsNameTag=shop-tariff-vm"
         }
       ],
       "topCandidate": "tariff-engine",

@@ -624,7 +624,7 @@ func endpointNameCandidates(serviceID string, endpoints []string) []Candidate {
 //
 //	"GET /api/orders"                       → "/api/orders"
 //	"/api/orders"                           → "/api/orders"  (Managed emits bare paths)
-//	"http://172.28.12.164:7000/events"      → "/events"      (outbound-call endpoints)
+//	"http://10.0.0.5:7000/events"      → "/events"      (outbound-call endpoints)
 //	"OrdersController.list"                 → ""              (class ref, not a path)
 //
 // SQL statements ("SELECT … FROM t WHERE a/b") are rejected because their
