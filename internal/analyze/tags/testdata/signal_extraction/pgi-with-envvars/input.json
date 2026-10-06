@@ -1,0 +1,25 @@
+{
+  "hosts": [
+    { "id": "HOST-1", "tags": [{ "key": "team", "value": "foo" }, { "key": "env", "value": "prod" }] }
+  ],
+  "processGroups": [
+    { "id": "PG-A", "hostId": "HOST-1" }
+  ],
+  "processGroupInstances": [
+    {
+      "id": "PGI-A1",
+      "hostId": "HOST-1",
+      "pgId": "PG-A",
+      "properties": {
+        "envVars": {
+          "OWNING_TEAM": "foo",
+          "APP_NAME": "checkout-api"
+        }
+      }
+    }
+  ],
+  "entitiesToProcess": [{ "id": "PGI-A1" }],
+  "targetKeys": ["team", "application"],
+  "existingTagValues": { "team": ["foo", "bar"] },
+  "ownershipTeams": ["foo", "bar"]
+}

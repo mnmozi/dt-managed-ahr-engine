@@ -1,0 +1,15 @@
+{
+  "hosts": [
+    { "id": "HOST-1", "tags": [
+        { "key": "env", "value": "prod" },
+        { "key": "envv", "value": "prod" },
+        { "key": "environment", "value": "prod" },
+        { "key": "team", "value": "foo" },
+        { "key": "Team", "value": "foo" }
+    ]},
+    { "id": "HOST-2", "tags": [
+        { "key": "env", "value": "staging" }
+    ]}
+  ],
+  "graphMode": "none"
+}

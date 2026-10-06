@@ -1,0 +1,53 @@
+{
+  "appliedDefaults": {
+    "callGraphMajorityThreshold": 0.66,
+    "consensusMinConfidence": 0.7,
+    "consensusMinSources": 2,
+    "targetKeys": [
+      "team"
+    ]
+  },
+  "entities": [
+    {
+      "candidates": {
+        "team": [
+          {
+            "confidence": 1,
+            "factors": [
+              "property-direct-match",
+              "existing-tag-value-match",
+              "ownership-directory-match"
+            ],
+            "source": "property:awsTags:Team",
+            "value": "alpha"
+          }
+        ]
+      },
+      "entityId": "HOST-1",
+      "type": "HOST"
+    },
+    {
+      "candidates": {
+        "team": [
+          {
+            "confidence": 0.6,
+            "factors": [
+              "property-direct-match"
+            ],
+            "source": "property:awsTags:Team",
+            "value": "nonexistent-team"
+          }
+        ]
+      },
+      "entityId": "HOST-2",
+      "type": "HOST"
+    }
+  ],
+  "summary": {
+    "consensusCountByKey": {},
+    "entitiesWithCandidates": 2,
+    "entitiesWithConsensus": 0,
+    "entitiesWithNoCandidates": 0,
+    "processedEntities": 2
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "totalTokens": 7,
+  "scopeDistribution": {
+    "entities.read": 7,
+    "metrics.read": 1,
+    "WriteConfig": 1,
+    "settings.write": 1
+  },
+  "ownerDistribution": {
+    "alice@example.com": 2,
+    "bob@example.com": 1,
+    "ops@example.com": 2,
+    "carol@example.com": 1,
+    "dave@example.com": 1
+  },
+  "findings": {
+    "noExpirationCount": 1,
+    "noExpirationSample": [
+      { "id": "tok-no-exp", "name": "perma-readonly", "owner": "bob@example.com", "enabled": true, "lastUsedDate": "2026-05-01T12:00:00Z", "ageDays": 695, "unusedDays": 9, "scopes": ["entities.read"] }
+    ],
+    "expiredCount": 1,
+    "expiredSample": [
+      { "id": "tok-expired", "name": "ci-runner-old", "owner": "ops@example.com", "enabled": true, "expirationDate": "2025-01-01T00:00:00Z", "lastUsedDate": "2025-01-01T00:00:00Z", "ageDays": 617, "unusedDays": 495, "scopes": ["entities.read"] }
+    ],
+    "neverUsedCount": 1,
+    "neverUsedSample": [
+      { "id": "tok-never-used", "name": "rotation-pending", "owner": "carol@example.com", "enabled": true, "expirationDate": "2027-04-15T00:00:00Z", "ageDays": 26, "scopes": ["entities.read"] }
+    ],
+    "staleUsageCount": 3,
+    "staleUsageSample": [
+      { "id": "tok-expired", "name": "ci-runner-old", "owner": "ops@example.com", "enabled": true, "expirationDate": "2025-01-01T00:00:00Z", "lastUsedDate": "2025-01-01T00:00:00Z", "ageDays": 617, "unusedDays": 495, "scopes": ["entities.read"] },
+      { "id": "tok-stale", "name": "old-integration", "owner": "dave@example.com", "enabled": true, "expirationDate": "2027-09-01T00:00:00Z", "lastUsedDate": "2025-01-01T00:00:00Z", "ageDays": 617, "unusedDays": 495, "scopes": ["entities.read"] },
+      { "id": "tok-disabled", "name": "decommissioned", "owner": "ops@example.com", "enabled": false, "expirationDate": "2027-01-01T00:00:00Z", "lastUsedDate": "2025-12-01T00:00:00Z", "ageDays": 495, "unusedDays": 161, "scopes": ["entities.read"] }
+    ],
+    "highPrivilegeCount": 1,
+    "highPrivilegeSample": [
+      { "id": "tok-admin", "name": "platform-admin", "owner": "alice@example.com", "enabled": true, "expirationDate": "2027-01-01T00:00:00Z", "lastUsedDate": "2026-05-01T12:00:00Z", "ageDays": 130, "unusedDays": 9, "scopes": ["settings.write", "WriteConfig", "entities.read"] }
+    ],
+    "disabledCount": 1
+  },
+  "appliedDefaults": {
+    "staleUsageThresholdDays": 90,
+    "highPrivilegeScopes": [
+      "WriteConfig",
+      "settings.write",
+      "tenantTokenManagement.create",
+      "tenantTokenManagement.delete",
+      "credentialVault.write",
+      "TenantTokenRotationServiceAPI"
+    ],
+    "nowMillis": 1778457600000
+  }
+}

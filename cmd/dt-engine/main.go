@@ -1,9 +1,9 @@
-// Command dt-ahr-engine reads a bundle directory produced by
+// Command dt-engine reads a bundle directory produced by
 // dt-managed-ahr-collector and emits structured findings.
 //
 // Usage:
 //
-//	dt-ahr-engine assess --bundle <dir> [--out findings.json]
+//	dt-engine assess --bundle <dir> [--out findings.json]
 //
 // The engine never touches Dynatrace directly — bundles are produced by
 // the separate collector, which keeps this binary a pure, offline,
@@ -16,8 +16,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/local/dt-managed-ahr-engine/internal/bundle"
-	"github.com/local/dt-managed-ahr-engine/internal/runner"
+	"github.com/local/dt-managed-engine/internal/bundle"
+	"github.com/local/dt-managed-engine/internal/elog"
+	"github.com/local/dt-managed-engine/internal/mcpserver"
+	"github.com/local/dt-managed-engine/internal/runner"
 )
 
 const version = "0.0.1"
@@ -30,6 +32,8 @@ func main() {
 	switch os.Args[1] {
 	case "assess":
 		runAssess(os.Args[2:])
+	case "mcp":
+		runMcp(os.Args[2:])
 	case "version", "-v", "--version":
 		fmt.Println(version)
 	case "help", "-h", "--help":
@@ -41,21 +45,44 @@ func main() {
 	}
 }
 
+// runMcp starts an MCP server over stdio. Typically spawned by the data MCP
+// (dt-managed-mcp) as a child process; humans usually don't invoke this
+// directly. We initialize the structured logger so the parent can parse
+// our stderr as JSONL.
+func runMcp(_ []string) {
+	elog.Init()
+	log := elog.Source("lifecycle")
+	log.Info("starting MCP server", "transport", "stdio", "engineVersion", version)
+	srv := mcpserver.New("dt-engine", version)
+	mcpserver.RegisterEngineTools(srv, version)
+	if err := srv.Run(); err != nil {
+		log.Error("fatal", "error", err.Error())
+		os.Exit(1)
+	}
+}
+
 func usage() {
-	fmt.Fprint(os.Stderr, `dt-ahr-engine — deterministic AHR check engine
+	fmt.Fprint(os.Stderr, `dt-engine — deterministic check engine for Dynatrace Managed
 
 Subcommands:
-  assess     run all checks against a collector bundle
+  assess     run all checks against a bundle directory (CLI / offline mode)
+  mcp        run as a stdio MCP server (called by dt-managed-mcp)
   version    print engine version
   help       show this help
 
 assess flags:
-  --bundle PATH     bundle directory produced by dt-managed-ahr-collector (required)
+  --bundle PATH     bundle directory (required)
   --out PATH        output path for findings.json (default: stdout)
   --pretty          pretty-print JSON output (default: true)
 
-Example:
-  dt-ahr-engine assess --bundle ./reports/acme/2026-04-30 --out findings.json
+mcp:
+  Reads MCP JSON-RPC over stdin, writes responses to stdout. Exposes
+  engine_list_checks and engine_run tools. Typically spawned by the
+  data MCP — humans don't usually invoke this directly.
+
+Examples:
+  dt-engine assess --bundle ./reports/acme/2026-04-30 --out findings.json
+  dt-engine mcp     # (spawned by dt-managed-mcp)
 `)
 }
 
@@ -80,6 +107,9 @@ func runAssess(args []string) {
 	}
 
 	result := runner.Run(b, version)
+	// CLI consumer sorts for human reading. The runner doesn't sort —
+	// presentation is the consumer's job.
+	runner.SortBySeverity(result.Findings)
 
 	w := os.Stdout
 	if *outPath != "" {
@@ -104,7 +134,7 @@ func runAssess(args []string) {
 	// Tiny human-friendly summary on stderr so the user sees something even
 	// when they piped JSON to a file.
 	fmt.Fprintf(os.Stderr,
-		"[dt-ahr-engine] checks=%d findings=%d (high=%d medium=%d low=%d info=%d) bundle=%s\n",
+		"[dt-engine] checks=%d findings=%d (high=%d medium=%d low=%d info=%d) bundle=%s\n",
 		result.Engine.ChecksApplied,
 		result.Counts.Total, result.Counts.High, result.Counts.Medium,
 		result.Counts.Low, result.Counts.Info,

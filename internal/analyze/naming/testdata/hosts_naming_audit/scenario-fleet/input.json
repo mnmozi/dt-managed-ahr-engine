@@ -1,0 +1,56 @@
+{
+  "hosts": [
+    {
+      "id": "HOST-FLEET-1",
+      "displayName": "ip-10-0-4-1"
+    },
+    {
+      "id": "HOST-FLEET-2",
+      "displayName": "ip-10-0-4-2"
+    },
+    {
+      "id": "HOST-FLEET-3",
+      "displayName": "ip-10-0-4-3"
+    }
+  ],
+  "processGroups": [
+    {
+      "id": "PG-FLEET-1-API",
+      "displayName": "orders-api",
+      "hostId": "HOST-FLEET-1",
+      "properties": {"softwareTechnologies": [{"type": "JAVA"}]}
+    },
+    {
+      "id": "PG-FLEET-1-SIDE",
+      "displayName": "orders-sidecar",
+      "hostId": "HOST-FLEET-1",
+      "properties": {"softwareTechnologies": [{"type": "GO"}]}
+    },
+    {
+      "id": "PG-FLEET-2-API",
+      "displayName": "orders-api",
+      "hostId": "HOST-FLEET-2",
+      "properties": {"softwareTechnologies": [{"type": "JAVA"}]}
+    },
+    {
+      "id": "PG-FLEET-2-SIDE",
+      "displayName": "orders-sidecar",
+      "hostId": "HOST-FLEET-2",
+      "properties": {"softwareTechnologies": [{"type": "GO"}]}
+    },
+    {
+      "id": "PG-FLEET-3-API",
+      "displayName": "orders-api",
+      "hostId": "HOST-FLEET-3",
+      "properties": {"softwareTechnologies": [{"type": "JAVA"}]}
+    },
+    {
+      "id": "PG-FLEET-3-SIDE",
+      "displayName": "orders-sidecar",
+      "hostId": "HOST-FLEET-3",
+      "properties": {"softwareTechnologies": [{"type": "GO"}]}
+    }
+  ],
+  "processGroupInstances": [],
+  "services": []
+}

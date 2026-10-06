@@ -1,0 +1,14 @@
+{
+  "appliedDefaults": { "graphMode": "low_tag_only", "lowTagThreshold": 1 },
+  "entitiesByType": {
+    "HOST":                   { "total": 0, "withLowTags": 0, "withZeroTags": 0 },
+    "PROCESS_GROUP":          { "total": 0, "withLowTags": 0, "withZeroTags": 0 },
+    "PROCESS_GROUP_INSTANCE": { "total": 0, "withLowTags": 0, "withZeroTags": 0 },
+    "SERVICE":                { "total": 0, "withLowTags": 0, "withZeroTags": 0 }
+  },
+  "keySimilarityClusters": [],
+  "keys": [],
+  "lowTagEntities": {},
+  "lowTagSubgraph": { "nodes": [] },
+  "propagationHints": []
+}

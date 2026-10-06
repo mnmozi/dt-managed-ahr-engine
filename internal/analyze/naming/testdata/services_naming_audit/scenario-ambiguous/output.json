@@ -1,0 +1,39 @@
+{
+  "reports": [
+    {
+      "entityId": "SERVICE-AMB",
+      "entityType": "SERVICE",
+      "currentName": "HTTP",
+      "genericReason": "name is a bare transport protocol",
+      "candidates": [
+        {
+          "source": "backing.pg.name",
+          "name": "orders-svc",
+          "confidence": 0.75,
+          "evidence": "backed by PG PROCESS_GROUP-AMB (orders-svc)"
+        },
+        {
+          "source": "backed.service.endpoint",
+          "name": "checkout",
+          "confidence": 0.72,
+          "evidence": "service SERVICE-AMB: path segment 'checkout' in 4/4 endpoints"
+        }
+      ],
+      "topCandidate": "orders-svc",
+      "decision": "ambiguous"
+    }
+  ],
+  "counts": {
+    "totalServices": 1,
+    "generic": 1,
+    "highConfidence": 0,
+    "ambiguous": 1,
+    "noSignal": 0
+  },
+  "appliedDefaults": {
+    "highConfidenceMin": 0.80,
+    "highConfidenceGap": 0.20,
+    "ambiguousMin": 0.40,
+    "maxCandidates": 5
+  }
+}

@@ -3,8 +3,8 @@ package checks
 import (
 	"testing"
 
-	"github.com/local/dt-managed-ahr-engine/internal/bundle"
-	"github.com/local/dt-managed-ahr-engine/internal/finding"
+	"github.com/local/dt-managed-engine/internal/bundle"
+	"github.com/local/dt-managed-engine/internal/finding"
 )
 
 func TestFullStackNoLogs_FindsBothShapes(t *testing.T) {
@@ -57,5 +57,36 @@ func TestFullStackNoLogs_NoOneAgentsNoFindings(t *testing.T) {
 	b := &bundle.Bundle{}
 	if got := (FullStackNoLogs{}).Run(b); len(got) != 0 {
 		t.Fatalf("empty bundle: %d", len(got))
+	}
+}
+
+func TestFullStackNoLogs_NoModuleDataAnywhereIsOneInfoFindingNotNFalsePositives(t *testing.T) {
+	// Managed 1.346 /api/v1/oneagents: every host FULL_STACK, modules:[] for all.
+	b := &bundle.Bundle{}
+	for i := 0; i < 17; i++ {
+		b.OneAgents = append(b.OneAgents, bundle.OneAgent{
+			HostInfo:       bundle.OneAgentHostInfo{HostName: "node", EntityID: "HOST-X"},
+			MonitoringType: "FULL_STACK",
+		})
+	}
+	got := (FullStackNoLogs{}).Run(b)
+	if len(got) != 1 {
+		t.Fatalf("want exactly one data-unavailable finding, got %d", len(got))
+	}
+	if got[0].Severity != finding.SeverityInfo || got[0].EntityRef != nil {
+		t.Fatalf("want an Info finding with no entity ref, got %+v", got[0])
+	}
+}
+
+func TestFullStackNoLogs_ModuleDataOnSomeHostsStillEvaluatesPerHost(t *testing.T) {
+	b := &bundle.Bundle{OneAgents: []bundle.OneAgent{
+		{HostInfo: bundle.OneAgentHostInfo{HostName: "a", EntityID: "HOST-A"}, MonitoringType: "FULL_STACK",
+			Modules: []bundle.OneAgentModule{{ModuleType: "LOG_ANALYTICS", Enabled: true}}},
+		{HostInfo: bundle.OneAgentHostInfo{HostName: "b", EntityID: "HOST-B"}, MonitoringType: "FULL_STACK",
+			Modules: []bundle.OneAgentModule{{ModuleType: "OS", Enabled: true}}},
+	}}
+	got := (FullStackNoLogs{}).Run(b)
+	if len(got) != 1 || got[0].Severity != finding.SeverityMedium || got[0].EntityRef.ID != "HOST-B" {
+		t.Fatalf("want one Medium finding for HOST-B, got %+v", got)
 	}
 }

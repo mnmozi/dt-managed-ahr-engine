@@ -1,0 +1,15 @@
+{
+  "hosts": [
+    {
+      "hostInfo": { "hostName": "solo", "entityId": "HOST-SOLO", "osType": "LINUX" },
+      "currentVersion": "1.295.0",
+      "autoUpdateSetting": "ENABLED",
+      "monitoringType": "FULL_STACK",
+      "faultyVersion": false,
+      "active": true
+    }
+  ],
+  "latestVersionsByOs": {
+    "LINUX": "1.295.0"
+  }
+}

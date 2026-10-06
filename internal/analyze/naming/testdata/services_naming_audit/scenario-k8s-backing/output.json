@@ -1,0 +1,33 @@
+{
+  "reports": [
+    {
+      "entityId": "SERVICE-K8S",
+      "entityType": "SERVICE",
+      "currentName": "Requests executed in HTTP",
+      "genericReason": "name matches a Dynatrace default-generated pattern",
+      "candidates": [
+        {
+          "source": "backing.pgi.k8s",
+          "name": "checkout-api",
+          "confidence": 0.88,
+          "evidence": "backing PGI PROCESS_GROUP_INSTANCE-K8S KubernetesContainerName=checkout-api"
+        }
+      ],
+      "topCandidate": "checkout-api",
+      "decision": "high_confidence"
+    }
+  ],
+  "counts": {
+    "totalServices": 1,
+    "generic": 1,
+    "highConfidence": 1,
+    "ambiguous": 0,
+    "noSignal": 0
+  },
+  "appliedDefaults": {
+    "highConfidenceMin": 0.80,
+    "highConfidenceGap": 0.20,
+    "ambiguousMin": 0.40,
+    "maxCandidates": 5
+  }
+}

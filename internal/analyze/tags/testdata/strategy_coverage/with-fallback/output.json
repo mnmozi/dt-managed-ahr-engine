@@ -1,0 +1,25 @@
+{
+  "achievableCoverage": 1,
+  "appliedDefaults": {
+    "scopeEntityTypes": [
+      "HOST"
+    ]
+  },
+  "coveragePerKey": {
+    "env": {
+      "overall": {
+        "coverage": 1,
+        "covered": 2,
+        "uncovered": 0
+      },
+      "perType": {
+        "HOST": {
+          "coverage": 1,
+          "covered": 2,
+          "uncovered": 0
+        }
+      }
+    }
+  },
+  "uncoveredEntities": null
+}

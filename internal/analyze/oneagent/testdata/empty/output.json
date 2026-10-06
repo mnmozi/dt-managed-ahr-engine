@@ -1,0 +1,14 @@
+{
+  "totalHosts": 0,
+  "latestVersionsByOs": {},
+  "versions": {},
+  "autoUpdateSettings": {},
+  "monitoringTypes": {},
+  "osTypes": {},
+  "faultyVersionCount": 0,
+  "inactiveCount": 0,
+  "hostsByMonitoringType": {},
+  "outdatedHostsCount": 0,
+  "outdatedHostsSample": null,
+  "hostsWithoutOsLatestReference": null
+}

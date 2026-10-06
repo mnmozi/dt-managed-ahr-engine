@@ -1,0 +1,40 @@
+{
+  "hosts": [],
+  "processGroups": [
+    {
+      "id": "PROCESS_GROUP-HEALTHY",
+      "displayName": "orders-api",
+      "properties": {
+        "JarFile": "/opt/orders/orders-api.jar"
+      }
+    },
+    {
+      "id": "PROCESS_GROUP-K8S-HIGH",
+      "displayName": "java",
+      "properties": {
+        "KubernetesContainerName": "billing-worker"
+      }
+    },
+    {
+      "id": "PROCESS_GROUP-AMBIGUOUS",
+      "displayName": "python3",
+      "properties": {
+        "JarFile": "/opt/etl/data-pipeline.jar",
+        "CommandLineArguments": [
+          "--name=kafka-consumer"
+        ]
+      }
+    },
+    {
+      "id": "PROCESS_GROUP-NO-SIGNAL",
+      "displayName": ":80",
+      "properties": {
+        "softwareTechnologies": [
+          {"type": "NGINX"}
+        ]
+      }
+    }
+  ],
+  "processGroupInstances": [],
+  "services": []
+}

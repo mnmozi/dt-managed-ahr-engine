@@ -3,8 +3,8 @@ package checks
 import (
 	"testing"
 
-	"github.com/local/dt-managed-ahr-engine/internal/bundle"
-	"github.com/local/dt-managed-ahr-engine/internal/finding"
+	"github.com/local/dt-managed-engine/internal/bundle"
+	"github.com/local/dt-managed-engine/internal/finding"
 )
 
 func TestMZOverlap_FlagsOverlappingPair(t *testing.T) {

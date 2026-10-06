@@ -1,0 +1,31 @@
+{
+  "hosts": [
+    { "id": "HOST-GRAPH", "displayName": "orders-prod-01" }
+  ],
+  "processGroups": [
+    {
+      "id": "PROCESS_GROUP-GRAPH",
+      "displayName": "java",
+      "hostId": "HOST-GRAPH"
+    }
+  ],
+  "processGroupInstances": [
+    {
+      "id": "PROCESS_GROUP_INSTANCE-GRAPH",
+      "displayName": "java checkout",
+      "hostId": "HOST-GRAPH",
+      "pgId": "PROCESS_GROUP-GRAPH",
+      "serviceIds": ["SERVICE-GRAPH"],
+      "properties": {
+        "KubernetesContainerName": "checkout-worker"
+      }
+    }
+  ],
+  "services": [
+    {
+      "id": "SERVICE-GRAPH",
+      "displayName": "checkout-service",
+      "pgiIds": ["PROCESS_GROUP_INSTANCE-GRAPH"]
+    }
+  ]
+}

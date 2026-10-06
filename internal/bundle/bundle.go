@@ -9,6 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 )
 
 // Bundle is the root in-memory representation of a collector output directory.
@@ -43,6 +44,23 @@ type Bundle struct {
 	// ManagementZones is the list of builtin:management-zones Settings 2.0
 	// objects. Used by MZ-coverage / MZ-overlap / MZ-dead checks.
 	ManagementZones []ManagementZone
+
+	// ReferenceTime is "now" for every age/recency computation. It comes
+	// from manifest.json (generatedAt, written by the collector) so a bundle
+	// evaluates identically today and in a year — the engine is a pure
+	// function of the bundle. Without a manifest it is read from the wall
+	// clock exactly once at load time; ReferenceTimeSource says which.
+	ReferenceTime       time.Time
+	ReferenceTimeSource string
+}
+
+// Now returns the bundle's reference time. Bundles constructed directly in
+// tests may leave it zero; then the wall clock is used.
+func (b *Bundle) Now() time.Time {
+	if b.ReferenceTime.IsZero() {
+		return time.Now().UTC()
+	}
+	return b.ReferenceTime
 }
 
 // AutoTagRule is the relevant subset of a builtin:tags.auto-tagging settings object.
@@ -94,6 +112,7 @@ func Load(bundleRoot string) (*Bundle, error) {
 		TagsByEntityType: map[string][]TagOccurrence{},
 		EntitiesByType:   map[string][]Entity{},
 	}
+	b.loadReferenceTime()
 
 	if err := b.loadAutoTagRules(); err != nil {
 		return nil, fmt.Errorf("load auto-tag rules: %w", err)
@@ -296,4 +315,23 @@ func (b *Bundle) loadTagsByEntityType() error {
 		b.TagsByEntityType[typeUpper] = append(b.TagsByEntityType[typeUpper], resp.Tags...)
 	}
 	return nil
+}
+
+// loadReferenceTime reads <root>/manifest.json (collector output) for the
+// bundle's generatedAt timestamp. Missing or unparsable → wall clock, once.
+func (b *Bundle) loadReferenceTime() {
+	var m struct {
+		GeneratedAt string `json:"generatedAt"`
+	}
+	if data, err := os.ReadFile(filepath.Join(b.Root, "manifest.json")); err == nil {
+		if json.Unmarshal(data, &m) == nil && m.GeneratedAt != "" {
+			if t, err := time.Parse(time.RFC3339, m.GeneratedAt); err == nil {
+				b.ReferenceTime = t.UTC()
+				b.ReferenceTimeSource = "manifest.json generatedAt"
+				return
+			}
+		}
+	}
+	b.ReferenceTime = time.Now().UTC()
+	b.ReferenceTimeSource = "wall clock (no manifest.json)"
 }

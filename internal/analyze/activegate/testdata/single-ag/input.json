@@ -1,0 +1,20 @@
+{
+  "activeGates": [
+    {
+      "id": "AG-1",
+      "hostname": "ag-prod-01",
+      "networkAddresses": ["10.0.0.1"],
+      "osType": "LINUX",
+      "version": "1.295.0",
+      "type": "ENVIRONMENT",
+      "autoUpdateSettings": { "effectiveSetting": "ENABLED" },
+      "connectionStatus": "ONLINE",
+      "networkZone": "default",
+      "modules": [
+        { "type": "METRIC_API", "enabled": true, "misconfigured": false },
+        { "type": "EXTENSION_CONTROLLER", "enabled": true, "misconfigured": false }
+      ]
+    }
+  ],
+  "latestVersionsByOs": { "LINUX": "1.295.0" }
+}

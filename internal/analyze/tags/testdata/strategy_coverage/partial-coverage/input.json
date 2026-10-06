@@ -1,0 +1,14 @@
+{
+  "hosts": [
+    { "id": "HOST-1", "properties": { "awsTags": [{ "key": "Team", "value": "foo" }] } },
+    { "id": "HOST-2", "properties": { "envVars": { "OWNING_TEAM": "bar" } } },
+    { "id": "HOST-3", "properties": {} },
+    { "id": "HOST-4", "properties": { "awsTags": [{ "key": "Team", "value": "baz" }] } }
+  ],
+  "strategy": {
+    "team": {
+      "extractFrom": ["awsTag:Team", "envVar:OWNING_TEAM"]
+    }
+  },
+  "scopeEntityTypes": ["HOST"]
+}

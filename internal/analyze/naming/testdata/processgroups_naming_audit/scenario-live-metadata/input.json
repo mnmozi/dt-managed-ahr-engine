@@ -1,0 +1,63 @@
+{
+  "hosts": [
+    { "id": "HOST-VM", "displayName": "ip-172-28-36-37.eu-central-1.compute.internal" }
+  ],
+  "processGroups": [
+    {
+      "id": "PROCESS_GROUP-NGINX",
+      "displayName": "nginx",
+      "hostId": "HOST-VM",
+      "properties": {
+        "detectedName": "nginx",
+        "metadata": [
+          { "key": "COMMAND_LINE_ARGS", "value": "/usr/sbin/nginx -g daemon\\ on;" },
+          { "key": "EXE_PATH", "value": "/usr/sbin/nginx" },
+          { "key": "EXE_NAME", "value": "nginx" }
+        ],
+        "softwareTechnologies": [ { "type": "NGINX", "version": "nginx/1.24.0" } ]
+      }
+    },
+    {
+      "id": "PROCESS_GROUP-PY",
+      "displayName": "python3",
+      "hostId": "HOST-VM",
+      "properties": {
+        "metadata": [
+          { "key": "COMMAND_LINE_ARGS", "value": "/usr/bin/python3 app.py --name=tariff-engine" },
+          { "key": "EXE_PATH", "value": "/usr/bin/python3" },
+          { "key": "EXE_NAME", "value": "python3" }
+        ],
+        "awsNameTag": "kargo-tariff-vm",
+        "softwareTechnologies": [ { "type": "PYTHON" } ]
+      }
+    }
+  ],
+  "processGroupInstances": [
+    {
+      "id": "PROCESS_GROUP_INSTANCE-NGINX",
+      "displayName": "nginx",
+      "pgId": "PROCESS_GROUP-NGINX",
+      "hostId": "HOST-VM",
+      "serviceIds": ["SERVICE-80"],
+      "properties": {
+        "metadata": [
+          { "key": "COMMAND_LINE_ARGS", "value": "/usr/sbin/nginx -g daemon\\ on;" },
+          { "key": "EXE_PATH", "value": "/usr/sbin/nginx" }
+        ]
+      }
+    }
+  ],
+  "services": [
+    {
+      "id": "SERVICE-80",
+      "displayName": "_:80",
+      "pgiIds": ["PROCESS_GROUP_INSTANCE-NGINX"],
+      "endpoints": [
+        "/tariff/quote",
+        "/tariff/list",
+        "http://172.28.12.164:7000/tariff/events",
+        "/healthz"
+      ]
+    }
+  ]
+}

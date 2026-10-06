@@ -1,0 +1,231 @@
+{
+  "appliedDefaults": {
+    "graphMode": "none",
+    "lowTagThreshold": 1
+  },
+  "entitiesByType": {
+    "HOST": {
+      "total": 2,
+      "withLowTags": 1,
+      "withZeroTags": 0
+    },
+    "PROCESS_GROUP": {
+      "total": 0,
+      "withLowTags": 0,
+      "withZeroTags": 0
+    },
+    "PROCESS_GROUP_INSTANCE": {
+      "total": 0,
+      "withLowTags": 0,
+      "withZeroTags": 0
+    },
+    "SERVICE": {
+      "total": 0,
+      "withLowTags": 0,
+      "withZeroTags": 0
+    }
+  },
+  "keySimilarityClusters": [
+    {
+      "canonical": "env",
+      "evidence": [
+        {
+          "metric": "substring",
+          "pair": [
+            "env",
+            "environment"
+          ],
+          "ratio": 0.27
+        },
+        {
+          "metric": "levenshtein",
+          "pair": [
+            "env",
+            "envv"
+          ],
+          "score": 1
+        }
+      ],
+      "totalOccurrences": 4,
+      "variants": [
+        "env",
+        "environment",
+        "envv"
+      ]
+    },
+    {
+      "canonical": "Team",
+      "evidence": [
+        {
+          "metric": "case_only",
+          "pair": [
+            "Team",
+            "team"
+          ]
+        }
+      ],
+      "totalOccurrences": 2,
+      "variants": [
+        "Team",
+        "team"
+      ]
+    }
+  ],
+  "keys": [
+    {
+      "contextDistribution": {
+        "UNKNOWN": 2
+      },
+      "coverage": {
+        "HOST": 1
+      },
+      "distinctValues": [
+        "prod",
+        "staging"
+      ],
+      "key": "env",
+      "topValues": [
+        {
+          "count": 1,
+          "value": "prod"
+        },
+        {
+          "count": 1,
+          "value": "staging"
+        }
+      ],
+      "totalOccurrences": 2,
+      "valueFormatJudgment": "uniform"
+    },
+    {
+      "contextDistribution": {
+        "UNKNOWN": 1
+      },
+      "coverage": {
+        "HOST": 0.5
+      },
+      "distinctValues": [
+        "foo"
+      ],
+      "key": "Team",
+      "topValues": [
+        {
+          "count": 1,
+          "value": "foo"
+        }
+      ],
+      "totalOccurrences": 1,
+      "valueFormatJudgment": "single"
+    },
+    {
+      "contextDistribution": {
+        "UNKNOWN": 1
+      },
+      "coverage": {
+        "HOST": 0.5
+      },
+      "distinctValues": [
+        "prod"
+      ],
+      "key": "environment",
+      "topValues": [
+        {
+          "count": 1,
+          "value": "prod"
+        }
+      ],
+      "totalOccurrences": 1,
+      "valueFormatJudgment": "single"
+    },
+    {
+      "contextDistribution": {
+        "UNKNOWN": 1
+      },
+      "coverage": {
+        "HOST": 0.5
+      },
+      "distinctValues": [
+        "prod"
+      ],
+      "key": "envv",
+      "topValues": [
+        {
+          "count": 1,
+          "value": "prod"
+        }
+      ],
+      "totalOccurrences": 1,
+      "valueFormatJudgment": "single"
+    },
+    {
+      "contextDistribution": {
+        "UNKNOWN": 1
+      },
+      "coverage": {
+        "HOST": 0.5
+      },
+      "distinctValues": [
+        "foo"
+      ],
+      "key": "team",
+      "topValues": [
+        {
+          "count": 1,
+          "value": "foo"
+        }
+      ],
+      "totalOccurrences": 1,
+      "valueFormatJudgment": "single"
+    }
+  ],
+  "lowTagEntities": {
+    "HOST": [
+      {
+        "entityId": "HOST-2",
+        "tagCount": 1
+      }
+    ]
+  },
+  "propagationHints": [
+    {
+      "fullyCoveredOn": [
+        "HOST"
+      ],
+      "key": "env",
+      "partiallyCoveredOn": null,
+      "uncoveredOn": null
+    },
+    {
+      "fullyCoveredOn": null,
+      "key": "Team",
+      "partiallyCoveredOn": [
+        "HOST"
+      ],
+      "uncoveredOn": null
+    },
+    {
+      "fullyCoveredOn": null,
+      "key": "environment",
+      "partiallyCoveredOn": [
+        "HOST"
+      ],
+      "uncoveredOn": null
+    },
+    {
+      "fullyCoveredOn": null,
+      "key": "envv",
+      "partiallyCoveredOn": [
+        "HOST"
+      ],
+      "uncoveredOn": null
+    },
+    {
+      "fullyCoveredOn": null,
+      "key": "team",
+      "partiallyCoveredOn": [
+        "HOST"
+      ],
+      "uncoveredOn": null
+    }
+  ]
+}

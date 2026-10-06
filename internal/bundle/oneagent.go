@@ -1,5 +1,7 @@
 package bundle
 
+import "encoding/json"
+
 // OneAgent is the relevant subset of an /api/v2/oneagents host entry.
 // We don't model every field — only what current and near-future checks need.
 type OneAgent struct {
@@ -23,13 +25,81 @@ type OneAgentHostInfo struct {
 	OsType   string `json:"osType"`
 }
 
+// UnmarshalJSON accepts the /api/v1/oneagents shape too, which has no
+// hostName — only displayName / discoveredName / localHostName.
+func (h *OneAgentHostInfo) UnmarshalJSON(data []byte) error {
+	var raw struct {
+		HostName       string `json:"hostName"`
+		DisplayName    string `json:"displayName"`
+		DiscoveredName string `json:"discoveredName"`
+		LocalHostName  string `json:"localHostName"`
+		EntityID       string `json:"entityId"`
+		OsType         string `json:"osType"`
+	}
+	if err := json.Unmarshal(data, &raw); err != nil {
+		return err
+	}
+	h.HostName = firstNonEmpty(raw.HostName, raw.DisplayName, raw.DiscoveredName, raw.LocalHostName)
+	h.EntityID = raw.EntityID
+	h.OsType = raw.OsType
+	return nil
+}
+
+func firstNonEmpty(vals ...string) string {
+	for _, v := range vals {
+		if v != "" {
+			return v
+		}
+	}
+	return ""
+}
+
 // OneAgentModule describes one OneAgent module — typically one of:
 // LOG_ANALYTICS, OS, JAVA, DOTNET, NODE_JS, etc.
+//
+// Two source shapes: v2 carries enabled/version directly; /api/v1/oneagents
+// (Managed 1.350+ with includeDetails=true) carries instances[] with a
+// per-instance active flag and no enabled field. UnmarshalJSON folds the v1
+// shape into Enabled (any instance active) so checks see one contract.
 type OneAgentModule struct {
-	ModuleType    string `json:"moduleType"`
-	Enabled       bool   `json:"enabled"`
-	Version       string `json:"version"`
-	Misconfigured bool   `json:"misconfigured"`
+	ModuleType    string                   `json:"moduleType"`
+	Enabled       bool                     `json:"enabled"`
+	Version       string                   `json:"version"`
+	Misconfigured bool                     `json:"misconfigured"`
+	Instances     []OneAgentModuleInstance `json:"instances,omitempty"`
+}
+
+// OneAgentModuleInstance is one injected instance of a v1 module.
+type OneAgentModuleInstance struct {
+	InstanceName  string `json:"instanceName"`
+	ModuleVersion string `json:"moduleVersion"`
+	FaultyVersion bool   `json:"faultyVersion"`
+	Active        bool   `json:"active"`
+}
+
+func (m *OneAgentModule) UnmarshalJSON(data []byte) error {
+	type plain OneAgentModule
+	var raw struct {
+		plain
+		Enabled *bool `json:"enabled"`
+	}
+	if err := json.Unmarshal(data, &raw); err != nil {
+		return err
+	}
+	*m = OneAgentModule(raw.plain)
+	if raw.Enabled != nil {
+		m.Enabled = *raw.Enabled
+		return nil
+	}
+	for _, in := range m.Instances {
+		if in.Active {
+			m.Enabled = true
+		}
+		if m.Version == "" {
+			m.Version = in.ModuleVersion
+		}
+	}
+	return nil
 }
 
 // DetectedTech reports a technology OneAgent observed on the host.

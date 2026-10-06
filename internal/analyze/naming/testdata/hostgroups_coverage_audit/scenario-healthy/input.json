@@ -1,0 +1,41 @@
+{
+  "hosts": [
+    {
+      "id": "HOST-1",
+      "displayName": "host-1",
+      "properties": {"hostGroupName": "orders-api"}
+    },
+    {
+      "id": "HOST-2",
+      "displayName": "host-2",
+      "properties": {"hostGroupName": "orders-api"}
+    },
+    {
+      "id": "HOST-3",
+      "displayName": "host-3",
+      "properties": {"hostGroupName": "billing-svc"}
+    }
+  ],
+  "processGroups": [
+    {
+      "id": "PG-1",
+      "displayName": "orders-api",
+      "hostId": "HOST-1",
+      "properties": {"softwareTechnologies": [{"type": "JAVA"}]}
+    },
+    {
+      "id": "PG-2",
+      "displayName": "orders-api",
+      "hostId": "HOST-2",
+      "properties": {"softwareTechnologies": [{"type": "JAVA"}]}
+    },
+    {
+      "id": "PG-3",
+      "displayName": "billing-svc",
+      "hostId": "HOST-3",
+      "properties": {"softwareTechnologies": [{"type": "JAVA"}]}
+    }
+  ],
+  "processGroupInstances": [],
+  "services": []
+}

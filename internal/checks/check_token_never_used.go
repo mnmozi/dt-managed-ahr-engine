@@ -11,10 +11,11 @@
 // decide. We don't auto-rotate or auto-revoke from this check.
 //
 // Logic:
-//   For every API token in the bundle, if LastUsedDate is nil/empty AND the
-//   token has been around for at least MinAgeDaysForNeverUsed, emit a finding.
-//   Severity is Medium for tokens with WriteConfig-class scopes (more
-//   dangerous if compromised) and Low otherwise.
+//
+//	For every API token in the bundle, if LastUsedDate is nil/empty AND the
+//	token has been around for at least MinAgeDaysForNeverUsed, emit a finding.
+//	Severity is Medium for tokens with WriteConfig-class scopes (more
+//	dangerous if compromised) and Low otherwise.
 //
 // The age guard prevents firing on tokens minted minutes ago that just
 // haven't been used YET because the integration is still being set up.
@@ -25,8 +26,8 @@ import (
 	"sort"
 	"time"
 
-	"github.com/local/dt-managed-ahr-engine/internal/bundle"
-	"github.com/local/dt-managed-ahr-engine/internal/finding"
+	"github.com/local/dt-managed-engine/internal/bundle"
+	"github.com/local/dt-managed-engine/internal/finding"
 )
 
 const (
@@ -39,14 +40,14 @@ const (
 // stale/unused token. Compromise of one of these is materially worse than
 // compromise of a read-only token.
 var highPrivilegeScopes = map[string]bool{
-	"WriteConfig":                       true,
-	"settings.write":                    true,
-	"tenantTokenManagement.create":      true,
-	"tenantTokenManagement.delete":      true,
-	"credentialVault.write":             true,
-	"TenantTokenRotationServiceAPI":     true,
-	"oneAgents.write":                   true,
-	"oneAgents.delete":                  true,
+	"WriteConfig":                   true,
+	"settings.write":                true,
+	"tenantTokenManagement.create":  true,
+	"tenantTokenManagement.delete":  true,
+	"credentialVault.write":         true,
+	"TenantTokenRotationServiceAPI": true,
+	"oneAgents.write":               true,
+	"oneAgents.delete":              true,
 }
 
 // TokenNeverUsed is the registered check.
@@ -60,7 +61,9 @@ func (c TokenNeverUsed) Run(b *bundle.Bundle) []finding.Finding {
 		return nil
 	}
 
-	now := time.Now().UTC()
+	// Age is measured against the bundle's reference time, never the wall
+	// clock — same bundle, same findings, whenever it is evaluated.
+	now := b.Now()
 	cutoff := now.AddDate(0, 0, -MinAgeDaysForNeverUsed)
 
 	// Sort tokens by ID so output is reproducible.

@@ -1,0 +1,30 @@
+{
+  "hosts": [
+    {"id": "HOST-OA-1", "displayName": "host-oa-1", "properties": {"hostGroupName": "orders-api"}},
+    {"id": "HOST-OA-2", "displayName": "host-oa-2", "properties": {"hostGroupName": "orders-api"}},
+    {"id": "HOST-OA-3", "displayName": "host-oa-3", "properties": {"hostGroupName": "orders-api"}},
+    {"id": "HOST-OA-4", "displayName": "host-oa-4", "properties": {"hostGroupName": "orders-api"}},
+    {"id": "HOST-OA-5", "displayName": "host-oa-5", "properties": {"hostGroupName": "orders-api"}},
+    {"id": "HOST-OA-6", "displayName": "host-oa-6", "properties": {"hostGroupName": "orders-api"}},
+    {"id": "HOST-NOGROUP", "displayName": "host-nogroup"},
+    {"id": "HOST-TYPO", "displayName": "host-typo", "properties": {"hostGroupName": "orders-apii"}},
+    {"id": "HOST-DEFAULT", "displayName": "host-default", "properties": {"hostGroupName": "default"}},
+    {"id": "HOST-DRIFT-A", "displayName": "host-drift-a", "properties": {"hostGroupName": "Orders-Prod"}},
+    {"id": "HOST-DRIFT-B", "displayName": "host-drift-b", "properties": {"hostGroupName": "orders-prod"}}
+  ],
+  "processGroups": [
+    {"id": "PG-OA-1", "displayName": "orders-api", "hostId": "HOST-OA-1", "properties": {"softwareTechnologies": [{"type": "JAVA"}]}},
+    {"id": "PG-OA-2", "displayName": "orders-api", "hostId": "HOST-OA-2", "properties": {"softwareTechnologies": [{"type": "JAVA"}]}},
+    {"id": "PG-OA-3", "displayName": "orders-api", "hostId": "HOST-OA-3", "properties": {"softwareTechnologies": [{"type": "JAVA"}]}},
+    {"id": "PG-OA-4", "displayName": "orders-api", "hostId": "HOST-OA-4", "properties": {"softwareTechnologies": [{"type": "JAVA"}]}},
+    {"id": "PG-OA-5", "displayName": "orders-api", "hostId": "HOST-OA-5", "properties": {"softwareTechnologies": [{"type": "JAVA"}]}},
+    {"id": "PG-OA-6", "displayName": "orders-api", "hostId": "HOST-OA-6", "properties": {"softwareTechnologies": [{"type": "JAVA"}]}},
+    {"id": "PG-NOGROUP", "displayName": "orders-api", "hostId": "HOST-NOGROUP", "properties": {"softwareTechnologies": [{"type": "JAVA"}]}},
+    {"id": "PG-TYPO", "displayName": "orders-api", "hostId": "HOST-TYPO", "properties": {"softwareTechnologies": [{"type": "JAVA"}]}},
+    {"id": "PG-DEFAULT", "displayName": "redis", "hostId": "HOST-DEFAULT", "properties": {"softwareTechnologies": [{"type": "REDIS"}]}},
+    {"id": "PG-DRIFT-A", "displayName": "nginx", "hostId": "HOST-DRIFT-A", "properties": {"softwareTechnologies": [{"type": "NGINX"}]}},
+    {"id": "PG-DRIFT-B", "displayName": "haproxy", "hostId": "HOST-DRIFT-B", "properties": {"softwareTechnologies": [{"type": "HAPROXY"}]}}
+  ],
+  "processGroupInstances": [],
+  "services": []
+}

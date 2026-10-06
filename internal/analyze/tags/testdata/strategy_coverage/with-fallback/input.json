@@ -1,0 +1,13 @@
+{
+  "hosts": [
+    { "id": "HOST-1", "properties": { "awsTags": [{ "key": "Environment", "value": "prod" }] } },
+    { "id": "HOST-2", "properties": {} }
+  ],
+  "strategy": {
+    "env": {
+      "extractFrom": ["awsTag:Environment"],
+      "fallback": "default-env"
+    }
+  },
+  "scopeEntityTypes": ["HOST"]
+}

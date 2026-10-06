@@ -1,0 +1,11 @@
+{
+  "hosts": [
+    { "hostInfo": { "hostName": "h1", "entityId": "HOST-1", "osType": "LINUX" }, "currentVersion": "1.295.0", "autoUpdateSetting": "ENABLED", "monitoringType": "FULL_STACK", "active": true },
+    { "hostInfo": { "hostName": "h2", "entityId": "HOST-2", "osType": "LINUX" }, "currentVersion": "1.295.0", "autoUpdateSetting": "ENABLED", "monitoringType": "FULL_STACK", "active": true },
+    { "hostInfo": { "hostName": "h3", "entityId": "HOST-3", "osType": "WINDOWS_DESKTOP" }, "currentVersion": "1.295.0", "autoUpdateSetting": "ENABLED", "monitoringType": "INFRASTRUCTURE", "active": true }
+  ],
+  "latestVersionsByOs": {
+    "LINUX": "1.295.0",
+    "WINDOWS_DESKTOP": "1.295.0"
+  }
+}

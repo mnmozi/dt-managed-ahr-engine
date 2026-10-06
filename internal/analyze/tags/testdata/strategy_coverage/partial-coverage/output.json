@@ -1,0 +1,39 @@
+{
+  "achievableCoverage": 0.75,
+  "appliedDefaults": {
+    "scopeEntityTypes": [
+      "HOST"
+    ]
+  },
+  "coveragePerKey": {
+    "team": {
+      "overall": {
+        "coverage": 0.75,
+        "covered": 3,
+        "uncovered": 1
+      },
+      "perType": {
+        "HOST": {
+          "coverage": 0.75,
+          "covered": 3,
+          "uncovered": 1
+        }
+      }
+    }
+  },
+  "uncoveredEntities": [
+    {
+      "entityId": "HOST-3",
+      "missingKeys": [
+        {
+          "key": "team",
+          "sourcesTried": [
+            "awsTag:Team",
+            "envVar:OWNING_TEAM"
+          ]
+        }
+      ],
+      "type": "HOST"
+    }
+  ]
+}

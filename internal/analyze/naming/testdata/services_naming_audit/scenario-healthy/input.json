@@ -1,0 +1,11 @@
+{
+  "hosts": [],
+  "processGroups": [],
+  "processGroupInstances": [],
+  "services": [
+    {
+      "id": "SERVICE-OK",
+      "displayName": "payments-api"
+    }
+  ]
+}

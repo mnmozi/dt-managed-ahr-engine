@@ -1,0 +1,18 @@
+{
+  "appliedDefaults": {
+    "callGraphMajorityThreshold": 0.66,
+    "consensusMinConfidence": 0.7,
+    "consensusMinSources": 2,
+    "targetKeys": [
+      "team"
+    ]
+  },
+  "entities": [],
+  "summary": {
+    "consensusCountByKey": {},
+    "entitiesWithCandidates": 0,
+    "entitiesWithConsensus": 0,
+    "entitiesWithNoCandidates": 0,
+    "processedEntities": 0
+  }
+}

@@ -1,32 +1,34 @@
 // Package runner orchestrates a full checks run against a loaded bundle.
+//
+// Per the engine/consumer split: the runner produces findings + counts and
+// returns them in registration-determined order. Sorting for display is the
+// caller's responsibility (CLI consumer, MCP consumer, etc.) — runner does
+// pure aggregation, not presentation.
 package runner
 
 import (
 	"sort"
 
-	"github.com/local/dt-managed-ahr-engine/internal/bundle"
-	"github.com/local/dt-managed-ahr-engine/internal/checks"
-	"github.com/local/dt-managed-ahr-engine/internal/finding"
+	"github.com/local/dt-managed-engine/internal/bundle"
+	"github.com/local/dt-managed-engine/internal/checks"
+	"github.com/local/dt-managed-engine/internal/finding"
 )
 
-// Result is the structured output of a full run. It's what gets serialized
-// to findings.json. Keep field names stable — downstream consumers depend on them.
+// Result is the structured output of a full run.
 type Result struct {
-	BundleRoot string             `json:"bundle_root"`
-	Engine     EngineMeta         `json:"engine"`
-	Counts     Counts             `json:"counts"`
-	Findings   []finding.Finding  `json:"findings"`
+	BundleRoot string            `json:"bundle_root"`
+	Engine     EngineMeta        `json:"engine"`
+	Counts     Counts            `json:"counts"`
+	Findings   []finding.Finding `json:"findings"`
 }
 
 // EngineMeta records what produced the result.
-// Useful for debugging and for diff-tool semantic versioning later.
 type EngineMeta struct {
 	Version       string `json:"version"`
 	ChecksApplied int    `json:"checks_applied"`
 }
 
-// Counts give a quick summary that consumers can render without walking
-// the full findings array.
+// Counts give a quick summary consumers can render without walking findings[].
 type Counts struct {
 	Total  int `json:"total"`
 	High   int `json:"high"`
@@ -35,43 +37,37 @@ type Counts struct {
 	Info   int `json:"info"`
 }
 
-// Run executes every registered check against the bundle and returns a Result.
-// Order: findings sorted by Severity (High > Medium > Low > Info), then by ID,
-// then by EntityRef.ID for stability.
+// Run executes every registered check and returns a Result.
+// Findings are returned in check-registration order. Consumers that want a
+// different order call SortBySeverity (or sort themselves).
 func Run(b *bundle.Bundle, version string) Result {
 	all := checks.All()
 	var findings []finding.Finding
 	for _, c := range all {
 		findings = append(findings, c.Run(b)...)
 	}
-	sortFindings(findings)
+	return Finalize(b.Root, version, len(all), findings)
+}
 
+// Finalize wraps a pre-computed findings slice into a Result with counts.
+// Does NOT sort — sort is a presentation concern.
+func Finalize(bundleRoot, version string, checksApplied int, findings []finding.Finding) Result {
 	return Result{
-		BundleRoot: b.Root,
+		BundleRoot: bundleRoot,
 		Engine: EngineMeta{
 			Version:       version,
-			ChecksApplied: len(all),
+			ChecksApplied: checksApplied,
 		},
 		Counts:   countBySeverity(findings),
 		Findings: findings,
 	}
 }
 
-func severityRank(s finding.Severity) int {
-	switch s {
-	case finding.SeverityHigh:
-		return 0
-	case finding.SeverityMedium:
-		return 1
-	case finding.SeverityLow:
-		return 2
-	case finding.SeverityInfo:
-		return 3
-	}
-	return 4
-}
-
-func sortFindings(f []finding.Finding) {
+// SortBySeverity sorts findings in place: Severity (High > Medium > Low > Info),
+// then check ID, then entity ref ID. The canonical "human-readable" sort.
+// Both the assess CLI and the MCP consumer use this; third-party consumers
+// are free to use a different sort.
+func SortBySeverity(f []finding.Finding) {
 	sort.SliceStable(f, func(i, j int) bool {
 		ri, rj := severityRank(f[i].Severity), severityRank(f[j].Severity)
 		if ri != rj {
@@ -89,6 +85,20 @@ func sortFindings(f []finding.Finding) {
 		}
 		return ei < ej
 	})
+}
+
+func severityRank(s finding.Severity) int {
+	switch s {
+	case finding.SeverityHigh:
+		return 0
+	case finding.SeverityMedium:
+		return 1
+	case finding.SeverityLow:
+		return 2
+	case finding.SeverityInfo:
+		return 3
+	}
+	return 4
 }
 
 func countBySeverity(f []finding.Finding) Counts {

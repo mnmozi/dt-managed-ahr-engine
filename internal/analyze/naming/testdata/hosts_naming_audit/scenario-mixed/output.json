@@ -1,0 +1,64 @@
+{
+  "reports": [
+    {
+      "entityId": "HOST-AWS-HIGH",
+      "entityType": "HOST",
+      "currentName": "ip-10-0-1-23",
+      "genericReason": "name matches a cloud-provider default pattern",
+      "candidates": [
+        {
+          "source": "aws.tag.Name",
+          "name": "orders-api",
+          "confidence": 0.92,
+          "evidence": "awsTag Name=orders-api"
+        }
+      ],
+      "topCandidate": "orders-api",
+      "decision": "high_confidence"
+    },
+    {
+      "entityId": "HOST-DOMINANT-PG",
+      "entityType": "HOST",
+      "currentName": "localhost",
+      "genericReason": "name is a generic localhost/runtime label",
+      "candidates": [
+        {
+          "source": "dominant.app.pg",
+          "name": "billing-api",
+          "confidence": 0.88,
+          "evidence": "host runs a single app PG: billing-api"
+        }
+      ],
+      "topCandidate": "billing-api",
+      "decision": "high_confidence"
+    },
+    {
+      "entityId": "HOST-BASTION",
+      "entityType": "HOST",
+      "currentName": "ip-10-0-3-1",
+      "genericReason": "name matches a cloud-provider default pattern",
+      "candidates": [
+        {
+          "source": "bastion.hint",
+          "name": "bastion",
+          "confidence": 0.35,
+          "evidence": "only system processes detected (sshd / systemd / OneAgent / cron / etc.)"
+        }
+      ],
+      "decision": "no_signal"
+    }
+  ],
+  "counts": {
+    "totalHosts": 4,
+    "generic": 3,
+    "highConfidence": 2,
+    "ambiguous": 0,
+    "noSignal": 1
+  },
+  "appliedDefaults": {
+    "highConfidenceMin": 0.80,
+    "highConfidenceGap": 0.20,
+    "ambiguousMin": 0.40,
+    "maxCandidates": 5
+  }
+}

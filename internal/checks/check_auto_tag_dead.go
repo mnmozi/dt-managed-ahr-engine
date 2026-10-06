@@ -25,8 +25,8 @@ package checks
 import (
 	"fmt"
 
-	"github.com/local/dt-managed-ahr-engine/internal/bundle"
-	"github.com/local/dt-managed-ahr-engine/internal/finding"
+	"github.com/local/dt-managed-engine/internal/bundle"
+	"github.com/local/dt-managed-engine/internal/finding"
 )
 
 // AutoTagDead is the registered check.

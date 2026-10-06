@@ -1,0 +1,33 @@
+{
+  "reports": [
+    {
+      "entityId": "PROCESS_GROUP-EP",
+      "entityType": "PROCESS_GROUP",
+      "currentName": "java",
+      "genericReason": "name is a bare technology / runtime",
+      "candidates": [
+        {
+          "source": "backed.service.endpoint",
+          "name": "orders",
+          "confidence": 0.72,
+          "evidence": "service SERVICE-EP: path segment 'orders' in 4/4 endpoints"
+        }
+      ],
+      "topCandidate": "orders",
+      "decision": "ambiguous"
+    }
+  ],
+  "counts": {
+    "totalProcessGroups": 1,
+    "generic": 1,
+    "highConfidence": 0,
+    "ambiguous": 1,
+    "noSignal": 0
+  },
+  "appliedDefaults": {
+    "highConfidenceMin": 0.80,
+    "highConfidenceGap": 0.20,
+    "ambiguousMin": 0.40,
+    "maxCandidates": 5
+  }
+}

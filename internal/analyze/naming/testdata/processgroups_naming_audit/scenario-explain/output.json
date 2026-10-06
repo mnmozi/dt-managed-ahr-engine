@@ -1,0 +1,39 @@
+{
+  "reports": [
+    {
+      "entityId": "PROCESS_GROUP-EXPLAIN",
+      "entityType": "PROCESS_GROUP",
+      "currentName": "nginx",
+      "genericReason": "name is a bare technology / runtime",
+      "candidates": null,
+      "decision": "no_signal",
+      "corroborating": [
+        {
+          "source": "exec.basename",
+          "name": "nginx",
+          "confidence": 0.55,
+          "evidence": "Executable=/usr/sbin/nginx"
+        },
+        {
+          "source": "aws.name-tag",
+          "name": "nginx",
+          "confidence": 0.65,
+          "evidence": "awsNameTag=nginx"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "totalProcessGroups": 1,
+    "generic": 1,
+    "highConfidence": 0,
+    "ambiguous": 0,
+    "noSignal": 1
+  },
+  "appliedDefaults": {
+    "highConfidenceMin": 0.8,
+    "highConfidenceGap": 0.2,
+    "ambiguousMin": 0.4,
+    "maxCandidates": 5
+  }
+}

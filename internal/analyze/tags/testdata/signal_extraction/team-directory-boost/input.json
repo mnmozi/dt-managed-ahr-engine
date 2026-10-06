@@ -1,0 +1,20 @@
+{
+  "hosts": [
+    {
+      "id": "HOST-1",
+      "properties": {
+        "awsTags": [{ "key": "Team", "value": "alpha" }]
+      }
+    },
+    {
+      "id": "HOST-2",
+      "properties": {
+        "awsTags": [{ "key": "Team", "value": "nonexistent-team" }]
+      }
+    }
+  ],
+  "entitiesToProcess": [{ "id": "HOST-1" }, { "id": "HOST-2" }],
+  "targetKeys": ["team"],
+  "existingTagValues": { "team": ["alpha", "beta"] },
+  "ownershipTeams": ["alpha", "beta", "gamma"]
+}

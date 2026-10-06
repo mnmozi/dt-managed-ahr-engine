@@ -1,0 +1,23 @@
+{
+  "hosts": [
+    {
+      "id": "HOST-1",
+      "displayName": "prod-foo-web-01",
+      "properties": {
+        "awsTags": [
+          { "key": "Team", "value": "foo" },
+          { "key": "Environment", "value": "prod" },
+          { "key": "Application", "value": "checkout" }
+        ],
+        "hostGroupName": "prod-foo-web"
+      }
+    }
+  ],
+  "entitiesToProcess": [{ "id": "HOST-1" }],
+  "targetKeys": ["team", "env", "application"],
+  "existingTagValues": {
+    "team": ["foo", "bar"],
+    "env": ["prod", "staging"]
+  },
+  "ownershipTeams": ["foo", "bar"]
+}

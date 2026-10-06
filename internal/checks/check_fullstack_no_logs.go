@@ -6,9 +6,9 @@
 // paying full-stack rates and missing logs from those hosts.
 //
 // Two failure shapes are detected:
-//   1. The host has no log module at all (older OneAgent missing the module
-//      entirely, or never installed).
-//   2. The host has a log module but it's disabled.
+//  1. The host has no log module at all (older OneAgent missing the module
+//     entirely, or never installed).
+//  2. The host has a log module but it's disabled.
 //
 // Either way the symptom for the customer is identical and the remediation is
 // the same: enable / install the log module for FULL_STACK hosts that should
@@ -19,8 +19,8 @@ package checks
 import (
 	"fmt"
 
-	"github.com/local/dt-managed-ahr-engine/internal/bundle"
-	"github.com/local/dt-managed-ahr-engine/internal/finding"
+	"github.com/local/dt-managed-engine/internal/bundle"
+	"github.com/local/dt-managed-engine/internal/finding"
 )
 
 // FullStackNoLogs is the registered check.
@@ -32,6 +32,34 @@ func (FullStackNoLogs) Phase() string { return "Phase 1" }
 func (c FullStackNoLogs) Run(b *bundle.Bundle) []finding.Finding {
 	if len(b.OneAgents) == 0 {
 		return nil
+	}
+
+	// An inventory where NO host reports any module is "module data
+	// unavailable" (observed live: Managed 1.346 serves only /api/v1/oneagents,
+	// which returns modules:[] for every host), not "every host has logs
+	// disabled". Flagging each host would be N false positives; say it once.
+	if !anyModuleData(b.OneAgents) {
+		return []finding.Finding{{
+			ID:       c.ID(),
+			Phase:    c.Phase(),
+			Severity: finding.SeverityInfo,
+			Title:    "OneAgent module data unavailable — log-module coverage could not be evaluated",
+			Description: fmt.Sprintf(
+				"None of the %d OneAgent entries in the bundle carries a modules[] list, so "+
+					"per-host log-module state is unknown. This is a data-source limitation "+
+					"(the OneAgents API on this Managed version omits module details), not "+
+					"evidence that log monitoring is off.",
+				len(b.OneAgents),
+			),
+			Evidence: finding.Evidence{
+				Tool:      "dt_get_oneagent_module_status",
+				RawPath:   "raw/phase1-oneagents.json",
+				DataPoint: fmt.Sprintf("oneagents=%d hostsWithModules=0", len(b.OneAgents)),
+			},
+			Recommendation: "Assess log coverage from HOST entity properties instead " +
+				"(logFileStatus / logSourceState via dt_get_process_properties or " +
+				"raw/phase1-hosts-all.json), or from builtin:logmonitoring.* settings.",
+		}}
 	}
 
 	var findings []finding.Finding
@@ -81,4 +109,15 @@ func (c FullStackNoLogs) Run(b *bundle.Bundle) []finding.Finding {
 		})
 	}
 	return findings
+}
+
+// anyModuleData reports whether at least one OneAgent entry carries module
+// details. Zero across the whole inventory means the source omitted them.
+func anyModuleData(agents []bundle.OneAgent) bool {
+	for _, oa := range agents {
+		if len(oa.Modules) > 0 {
+			return true
+		}
+	}
+	return false
 }

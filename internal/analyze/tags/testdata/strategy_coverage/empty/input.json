@@ -1,0 +1,3 @@
+{
+  "strategy": { "team": { "extractFrom": ["awsTag:Team"] } }
+}

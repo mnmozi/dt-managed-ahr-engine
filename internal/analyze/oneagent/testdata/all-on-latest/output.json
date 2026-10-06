@@ -1,0 +1,22 @@
+{
+  "totalHosts": 3,
+  "latestVersionsByOs": { "LINUX": "1.295.0", "WINDOWS_DESKTOP": "1.295.0" },
+  "versions": { "1.295.0": 3 },
+  "autoUpdateSettings": { "ENABLED": 3 },
+  "monitoringTypes": { "FULL_STACK": 2, "INFRASTRUCTURE": 1 },
+  "osTypes": { "LINUX": 2, "WINDOWS_DESKTOP": 1 },
+  "faultyVersionCount": 0,
+  "inactiveCount": 0,
+  "hostsByMonitoringType": {
+    "FULL_STACK": [
+      { "hostName": "h1", "entityId": "HOST-1", "osType": "LINUX", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "autoUpdateSetting": "ENABLED", "faultyVersion": false, "active": true },
+      { "hostName": "h2", "entityId": "HOST-2", "osType": "LINUX", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "autoUpdateSetting": "ENABLED", "faultyVersion": false, "active": true }
+    ],
+    "INFRASTRUCTURE": [
+      { "hostName": "h3", "entityId": "HOST-3", "osType": "WINDOWS_DESKTOP", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "autoUpdateSetting": "ENABLED", "faultyVersion": false, "active": true }
+    ]
+  },
+  "outdatedHostsCount": 0,
+  "outdatedHostsSample": null,
+  "hostsWithoutOsLatestReference": null
+}

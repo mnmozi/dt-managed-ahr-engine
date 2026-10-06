@@ -1,0 +1,73 @@
+{
+  "apiTokens": [
+    {
+      "id": "tok-healthy",
+      "name": "monitoring-readonly",
+      "owner": "alice@example.com",
+      "enabled": true,
+      "creationDate": "2026-01-01T00:00:00Z",
+      "expirationDate": "2027-05-06T00:00:00Z",
+      "lastUsedDate": "2026-05-01T12:00:00Z",
+      "scopes": ["entities.read", "metrics.read"]
+    },
+    {
+      "id": "tok-no-exp",
+      "name": "perma-readonly",
+      "owner": "bob@example.com",
+      "enabled": true,
+      "creationDate": "2024-06-15T00:00:00Z",
+      "lastUsedDate": "2026-05-01T12:00:00Z",
+      "scopes": ["entities.read"]
+    },
+    {
+      "id": "tok-expired",
+      "name": "ci-runner-old",
+      "owner": "ops@example.com",
+      "enabled": true,
+      "creationDate": "2024-09-01T00:00:00Z",
+      "expirationDate": "2025-01-01T00:00:00Z",
+      "lastUsedDate": "2025-01-01T00:00:00Z",
+      "scopes": ["entities.read"]
+    },
+    {
+      "id": "tok-never-used",
+      "name": "rotation-pending",
+      "owner": "carol@example.com",
+      "enabled": true,
+      "creationDate": "2026-04-15T00:00:00Z",
+      "expirationDate": "2027-04-15T00:00:00Z",
+      "scopes": ["entities.read"]
+    },
+    {
+      "id": "tok-stale",
+      "name": "old-integration",
+      "owner": "dave@example.com",
+      "enabled": true,
+      "creationDate": "2024-09-01T00:00:00Z",
+      "expirationDate": "2027-09-01T00:00:00Z",
+      "lastUsedDate": "2025-01-01T00:00:00Z",
+      "scopes": ["entities.read"]
+    },
+    {
+      "id": "tok-admin",
+      "name": "platform-admin",
+      "owner": "alice@example.com",
+      "enabled": true,
+      "creationDate": "2026-01-01T00:00:00Z",
+      "expirationDate": "2027-01-01T00:00:00Z",
+      "lastUsedDate": "2026-05-01T12:00:00Z",
+      "scopes": ["settings.write", "WriteConfig", "entities.read"]
+    },
+    {
+      "id": "tok-disabled",
+      "name": "decommissioned",
+      "owner": "ops@example.com",
+      "enabled": false,
+      "creationDate": "2025-01-01T00:00:00Z",
+      "expirationDate": "2027-01-01T00:00:00Z",
+      "lastUsedDate": "2025-12-01T00:00:00Z",
+      "scopes": ["entities.read"]
+    }
+  ],
+  "nowMillis": 1778457600000
+}

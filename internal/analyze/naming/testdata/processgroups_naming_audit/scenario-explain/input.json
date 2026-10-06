@@ -1,0 +1,19 @@
+{
+  "explain": true,
+  "hosts": [],
+  "processGroups": [
+    {
+      "id": "PROCESS_GROUP-EXPLAIN",
+      "displayName": "nginx",
+      "properties": {
+        "metadata": [
+          { "key": "EXE_PATH", "value": "/usr/sbin/nginx" }
+        ],
+        "awsNameTag": "nginx",
+        "softwareTechnologies": [ { "type": "NGINX" } ]
+      }
+    }
+  ],
+  "processGroupInstances": [],
+  "services": []
+}

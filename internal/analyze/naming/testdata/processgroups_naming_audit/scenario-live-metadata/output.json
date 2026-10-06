@@ -1,0 +1,71 @@
+{
+  "reports": [
+    {
+      "entityId": "PROCESS_GROUP-NGINX",
+      "entityType": "PROCESS_GROUP",
+      "currentName": "nginx",
+      "genericReason": "name is a bare technology / runtime",
+      "candidates": [
+        {
+          "source": "backed.service.endpoint",
+          "name": "tariff",
+          "confidence": 0.65,
+          "evidence": "service SERVICE-80: path segment 'tariff' in 3/4 endpoints"
+        }
+      ],
+      "topCandidate": "tariff",
+      "decision": "ambiguous",
+      "corroborating": [
+        {
+          "source": "exec.basename",
+          "name": "nginx",
+          "confidence": 0.55,
+          "evidence": "Executable=/usr/sbin/nginx"
+        }
+      ]
+    },
+    {
+      "entityId": "PROCESS_GROUP-PY",
+      "entityType": "PROCESS_GROUP",
+      "currentName": "python3",
+      "genericReason": "name is a bare technology / runtime",
+      "candidates": [
+        {
+          "source": "cli.arg.name",
+          "name": "tariff-engine",
+          "confidence": 0.8,
+          "evidence": "argv: --name=tariff-engine"
+        },
+        {
+          "source": "aws.name-tag",
+          "name": "kargo-tariff-vm",
+          "confidence": 0.65,
+          "evidence": "awsNameTag=kargo-tariff-vm"
+        }
+      ],
+      "topCandidate": "tariff-engine",
+      "decision": "ambiguous",
+      "corroborating": [
+        {
+          "source": "exec.basename",
+          "name": "python3",
+          "confidence": 0.55,
+          "evidence": "Executable=/usr/bin/python3"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "totalProcessGroups": 2,
+    "generic": 2,
+    "highConfidence": 0,
+    "ambiguous": 2,
+    "noSignal": 0
+  },
+  "appliedDefaults": {
+    "highConfidenceMin": 0.8,
+    "highConfidenceGap": 0.2,
+    "ambiguousMin": 0.4,
+    "maxCandidates": 5
+  }
+}

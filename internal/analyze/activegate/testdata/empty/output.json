@@ -1,0 +1,21 @@
+{
+  "totalActiveGates": 0,
+  "latestVersionsByOs": {},
+  "versions": {},
+  "types": {},
+  "autoUpdateSettings": {},
+  "connectionStatuses": {},
+  "osTypes": {},
+  "notConnectedCount": 0,
+  "misconfiguredModuleCount": 0,
+  "byCapability": {},
+  "activeGatesByCapability": {},
+  "misconfiguredByCapability": {},
+  "networkZones": {},
+  "activeGatesByNetworkZone": {},
+  "activeGatesWithoutNetworkZone": null,
+  "activeGatesByType": {},
+  "outdatedActiveGatesCount": 0,
+  "outdatedActiveGatesSample": null,
+  "activeGatesWithoutOsLatestReference": null
+}

@@ -1,0 +1,41 @@
+{
+  "hosts": [
+    { "id": "HOST-1", "displayName": "prod-web-01", "tags": [
+        { "context": "AUTO_TAG", "key": "team", "value": "foo" },
+        { "context": "AUTO_TAG", "key": "env", "value": "prod" }
+    ]},
+    { "id": "HOST-2", "displayName": "prod-web-02", "tags": [
+        { "context": "AUTO_TAG", "key": "team", "value": "foo" },
+        { "context": "AUTO_TAG", "key": "env", "value": "prod" }
+    ]},
+    { "id": "HOST-3", "displayName": "stg-db-01", "tags": [
+        { "context": "AUTO_TAG", "key": "env", "value": "staging" }
+    ]},
+    { "id": "HOST-4", "displayName": "untagged-host", "tags": [] }
+  ],
+  "processGroups": [
+    { "id": "PG-A", "hostId": "HOST-1", "tags": [
+        { "context": "CONTEXTLESS", "key": "team", "value": "Foo" }
+    ]},
+    { "id": "PG-B", "hostId": "HOST-2" },
+    { "id": "PG-C", "hostId": "HOST-3" }
+  ],
+  "processGroupInstances": [
+    { "id": "PGI-A1", "hostId": "HOST-1", "pgId": "PG-A", "serviceIds": ["SVC-X"] },
+    { "id": "PGI-B1", "hostId": "HOST-2", "pgId": "PG-B", "serviceIds": ["SVC-Y"] },
+    { "id": "PGI-C1", "hostId": "HOST-3", "pgId": "PG-C", "serviceIds": ["SVC-Z"] }
+  ],
+  "services": [
+    { "id": "SVC-X", "displayName": "checkout-api", "pgiIds": ["PGI-A1"], "callsServiceIds": ["SVC-Y"], "tags": [
+        { "context": "AUTO_TAG", "key": "team", "value": "foo" }
+    ]},
+    { "id": "SVC-Y", "displayName": "payment-api", "pgiIds": ["PGI-B1"], "callsServiceIds": [] },
+    { "id": "SVC-Z", "displayName": "db-proxy", "pgiIds": ["PGI-C1"] }
+  ],
+  "autoTagRules": [
+    { "objectId": "rule-team", "value": { "name": "team" } },
+    { "objectId": "rule-env",  "value": { "name": "env" } }
+  ],
+  "lowTagThreshold": 1,
+  "graphMode": "none"
+}

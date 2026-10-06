@@ -1,0 +1,70 @@
+{
+  "reports": [
+    {
+      "entityId": "PROCESS_GROUP-K8S-HIGH",
+      "entityType": "PROCESS_GROUP",
+      "currentName": "java",
+      "genericReason": "name is a bare technology / runtime",
+      "candidates": [
+        {
+          "source": "k8s.container",
+          "name": "billing-worker",
+          "confidence": 0.92,
+          "evidence": "KubernetesContainerName=billing-worker"
+        }
+      ],
+      "topCandidate": "billing-worker",
+      "decision": "high_confidence"
+    },
+    {
+      "entityId": "PROCESS_GROUP-AMBIGUOUS",
+      "entityType": "PROCESS_GROUP",
+      "currentName": "python3",
+      "genericReason": "name is a bare technology / runtime",
+      "candidates": [
+        {
+          "source": "jar.filename",
+          "name": "data-pipeline",
+          "confidence": 0.85,
+          "evidence": "JarFile=/opt/etl/data-pipeline.jar"
+        },
+        {
+          "source": "cli.arg.name",
+          "name": "kafka-consumer",
+          "confidence": 0.80,
+          "evidence": "argv: --name=kafka-consumer"
+        }
+      ],
+      "topCandidate": "data-pipeline",
+      "decision": "ambiguous"
+    },
+    {
+      "entityId": "PROCESS_GROUP-NO-SIGNAL",
+      "entityType": "PROCESS_GROUP",
+      "currentName": ":80",
+      "genericReason": "name is only a port number",
+      "candidates": [
+        {
+          "source": "tech.only",
+          "name": "nginx",
+          "confidence": 0.30,
+          "evidence": "softwareTechnologies[0].type=NGINX"
+        }
+      ],
+      "decision": "no_signal"
+    }
+  ],
+  "counts": {
+    "totalProcessGroups": 4,
+    "generic": 3,
+    "highConfidence": 1,
+    "ambiguous": 1,
+    "noSignal": 1
+  },
+  "appliedDefaults": {
+    "highConfidenceMin": 0.80,
+    "highConfidenceGap": 0.20,
+    "ambiguousMin": 0.40,
+    "maxCandidates": 5
+  }
+}

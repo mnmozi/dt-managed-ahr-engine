@@ -2,9 +2,10 @@ package checks
 
 import (
 	"testing"
+	"time"
 
-	"github.com/local/dt-managed-ahr-engine/internal/bundle"
-	"github.com/local/dt-managed-ahr-engine/internal/finding"
+	"github.com/local/dt-managed-engine/internal/bundle"
+	"github.com/local/dt-managed-engine/internal/finding"
 )
 
 func TestTokenNeverUsed_FixtureProducesExpectedFindings(t *testing.T) {
@@ -71,5 +72,33 @@ func TestTokenNeverUsed_AllUsedNoFindings(t *testing.T) {
 	}
 	if got := (TokenNeverUsed{}).Run(b); len(got) != 0 {
 		t.Fatalf("expected 0 findings, got %d", len(got))
+	}
+}
+
+func TestTokenNeverUsed_UsesBundleReferenceTimeNotWallClock(t *testing.T) {
+	ref := time.Date(2030, 1, 20, 0, 0, 0, 0, time.UTC)
+	b := &bundle.Bundle{
+		ReferenceTime: ref,
+		APITokens: []bundle.APIToken{
+			// 10 days before the reference time — under the 14-day guard even
+			// though, by the wall clock, it is years old.
+			{ID: "young", Name: "young", CreationDate: "2030-01-10T00:00:00Z", Scopes: []string{"ReadConfig"}},
+			// 20 days before — fires.
+			{ID: "old", Name: "old", CreationDate: "2029-12-31T00:00:00Z", Scopes: []string{"ReadConfig"}},
+		},
+	}
+	got := (TokenNeverUsed{}).Run(b)
+	if len(got) != 1 || got[0].EntityRef.ID != "old" {
+		t.Fatalf("want only the 20-day-old token relative to the bundle clock, got %+v", got)
+	}
+}
+
+func TestBundleLoad_ReferenceTimeComesFromManifest(t *testing.T) {
+	b, err := bundle.Load(goldenPath(t, "never-used-token"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if b.ReferenceTimeSource != "manifest.json generatedAt" || b.ReferenceTime.Year() != 2026 || b.ReferenceTime.Month() != 5 {
+		t.Fatalf("reference time not taken from the fixture manifest: %s / %s", b.ReferenceTime, b.ReferenceTimeSource)
 	}
 }

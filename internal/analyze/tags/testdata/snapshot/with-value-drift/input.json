@@ -1,0 +1,11 @@
+{
+  "hosts": [
+    { "id": "HOST-1", "tags": [{ "key": "team", "value": "foo" }] },
+    { "id": "HOST-2", "tags": [{ "key": "team", "value": "Foo" }] },
+    { "id": "HOST-3", "tags": [{ "key": "team", "value": "FOO" }] },
+    { "id": "HOST-4", "tags": [{ "key": "team", "value": "foo-team" }] },
+    { "id": "HOST-5", "tags": [{ "key": "team", "value": "foo_team" }] },
+    { "id": "HOST-6", "tags": [{ "key": "team", "value": "bar" }] }
+  ],
+  "graphMode": "none"
+}

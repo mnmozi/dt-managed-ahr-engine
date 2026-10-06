@@ -1,0 +1,41 @@
+{
+  "totalHosts": 8,
+  "latestVersionsByOs": { "LINUX": "1.295.0", "WINDOWS_DESKTOP": "1.295.0" },
+  "versions": {
+    "1.295.0": 2,
+    "1.294.0": 1,
+    "1.280.0": 1,
+    "1.250.0": 2,
+    "1.288.0": 1,
+    "1.260.0": 1
+  },
+  "autoUpdateSettings": { "ENABLED": 3, "DISABLED": 5 },
+  "monitoringTypes": { "FULL_STACK": 4, "INFRASTRUCTURE": 4 },
+  "osTypes": { "LINUX": 5, "WINDOWS_DESKTOP": 2, "AIX_PPC": 1 },
+  "faultyVersionCount": 1,
+  "inactiveCount": 1,
+  "hostsByMonitoringType": {
+    "FULL_STACK": [
+      { "hostName": "prod-web-01", "entityId": "HOST-A1", "osType": "LINUX", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "autoUpdateSetting": "ENABLED", "faultyVersion": false, "active": true },
+      { "hostName": "prod-web-02", "entityId": "HOST-A2", "osType": "LINUX", "version": "1.294.0", "latestForOs": "1.295.0", "minorBehind": 1, "autoUpdateSetting": "ENABLED", "faultyVersion": false, "active": true },
+      { "hostName": "prod-web-03", "entityId": "HOST-A3", "osType": "LINUX", "version": "1.280.0", "latestForOs": "1.295.0", "minorBehind": 15, "autoUpdateSetting": "DISABLED", "faultyVersion": false, "active": true },
+      { "hostName": "stg-iis-01", "entityId": "HOST-C1", "osType": "WINDOWS_DESKTOP", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "autoUpdateSetting": "ENABLED", "faultyVersion": false, "active": true }
+    ],
+    "INFRASTRUCTURE": [
+      { "hostName": "prod-db-01", "entityId": "HOST-B1", "osType": "LINUX", "version": "1.250.0", "latestForOs": "1.295.0", "minorBehind": 45, "autoUpdateSetting": "DISABLED", "faultyVersion": true, "active": true },
+      { "hostName": "stg-iis-02", "entityId": "HOST-C2", "osType": "WINDOWS_DESKTOP", "version": "1.288.0", "latestForOs": "1.295.0", "minorBehind": 7, "autoUpdateSetting": "DISABLED", "faultyVersion": false, "active": true },
+      { "hostName": "legacy-aix", "entityId": "HOST-D1", "osType": "AIX_PPC", "version": "1.250.0", "minorBehind": 0, "autoUpdateSetting": "DISABLED", "faultyVersion": false, "active": true },
+      { "hostName": "decom-host", "entityId": "HOST-E1", "osType": "LINUX", "version": "1.260.0", "latestForOs": "1.295.0", "minorBehind": 35, "autoUpdateSetting": "DISABLED", "faultyVersion": false, "active": false }
+    ]
+  },
+  "outdatedHostsCount": 4,
+  "outdatedHostsSample": [
+    { "hostName": "prod-web-03", "entityId": "HOST-A3", "osType": "LINUX", "version": "1.280.0", "latestForOs": "1.295.0", "minorBehind": 15, "autoUpdateSetting": "DISABLED", "faultyVersion": false, "active": true },
+    { "hostName": "prod-db-01", "entityId": "HOST-B1", "osType": "LINUX", "version": "1.250.0", "latestForOs": "1.295.0", "minorBehind": 45, "autoUpdateSetting": "DISABLED", "faultyVersion": true, "active": true },
+    { "hostName": "stg-iis-02", "entityId": "HOST-C2", "osType": "WINDOWS_DESKTOP", "version": "1.288.0", "latestForOs": "1.295.0", "minorBehind": 7, "autoUpdateSetting": "DISABLED", "faultyVersion": false, "active": true },
+    { "hostName": "decom-host", "entityId": "HOST-E1", "osType": "LINUX", "version": "1.260.0", "latestForOs": "1.295.0", "minorBehind": 35, "autoUpdateSetting": "DISABLED", "faultyVersion": false, "active": false }
+  ],
+  "hostsWithoutOsLatestReference": [
+    { "hostName": "legacy-aix", "entityId": "HOST-D1", "osType": "AIX_PPC", "version": "1.250.0", "minorBehind": 0, "autoUpdateSetting": "DISABLED", "faultyVersion": false, "active": true }
+  ]
+}

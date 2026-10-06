@@ -1,0 +1,64 @@
+{
+  "appliedDefaults": {
+    "callGraphMajorityThreshold": 0.66,
+    "consensusMinConfidence": 0.7,
+    "consensusMinSources": 2,
+    "targetKeys": [
+      "team"
+    ]
+  },
+  "entities": [
+    {
+      "candidates": {
+        "team": [
+          {
+            "confidence": 0.9,
+            "evidence": "3 of 3 siblings with this key agree",
+            "factors": [
+              "sibling-majority",
+              "existing-tag-value-match",
+              "ownership-directory-match",
+              "multi-source-corroboration:2"
+            ],
+            "source": "graph:siblingMajority",
+            "value": "payments"
+          },
+          {
+            "confidence": 0.85,
+            "evidence": "3 of 3 call neighbors with this key agree",
+            "factors": [
+              "call-graph-majority",
+              "existing-tag-value-match",
+              "ownership-directory-match",
+              "multi-source-corroboration:2"
+            ],
+            "source": "graph:callGraphMajority",
+            "value": "payments"
+          }
+        ]
+      },
+      "consensus": {
+        "team": {
+          "confidence": 0.9,
+          "contributingSources": [
+            "graph:callGraphMajority",
+            "graph:siblingMajority"
+          ],
+          "sourceCount": 2,
+          "value": "payments"
+        }
+      },
+      "entityId": "SVC-UNTAGGED",
+      "type": "SERVICE"
+    }
+  ],
+  "summary": {
+    "consensusCountByKey": {
+      "team": 1
+    },
+    "entitiesWithCandidates": 1,
+    "entitiesWithConsensus": 1,
+    "entitiesWithNoCandidates": 0,
+    "processedEntities": 1
+  }
+}

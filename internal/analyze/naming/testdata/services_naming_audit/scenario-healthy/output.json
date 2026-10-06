@@ -1,0 +1,16 @@
+{
+  "reports": [],
+  "counts": {
+    "totalServices": 1,
+    "generic": 0,
+    "highConfidence": 0,
+    "ambiguous": 0,
+    "noSignal": 0
+  },
+  "appliedDefaults": {
+    "highConfidenceMin": 0.80,
+    "highConfidenceGap": 0.20,
+    "ambiguousMin": 0.40,
+    "maxCandidates": 5
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "totalActiveGates": 1,
+  "latestVersionsByOs": { "LINUX": "1.295.0" },
+  "versions": { "1.295.0": 1 },
+  "types": { "ENVIRONMENT": 1 },
+  "autoUpdateSettings": { "ENABLED": 1 },
+  "connectionStatuses": { "ONLINE": 1 },
+  "osTypes": { "LINUX": 1 },
+  "notConnectedCount": 0,
+  "misconfiguredModuleCount": 0,
+  "byCapability": { "METRIC_API": 1, "EXTENSION_CONTROLLER": 1 },
+  "activeGatesByCapability": {
+    "METRIC_API": [
+      {
+        "id": "AG-1",
+        "hostname": "ag-prod-01",
+        "networkAddresses": ["10.0.0.1"],
+        "osType": "LINUX",
+        "version": "1.295.0",
+        "latestForOs": "1.295.0",
+        "minorBehind": 0,
+        "type": "ENVIRONMENT",
+        "autoUpdateSetting": "ENABLED",
+        "connectionStatus": "ONLINE",
+        "networkZone": "default",
+        "enabledModules": ["METRIC_API", "EXTENSION_CONTROLLER"]
+      }
+    ],
+    "EXTENSION_CONTROLLER": [
+      {
+        "id": "AG-1",
+        "hostname": "ag-prod-01",
+        "networkAddresses": ["10.0.0.1"],
+        "osType": "LINUX",
+        "version": "1.295.0",
+        "latestForOs": "1.295.0",
+        "minorBehind": 0,
+        "type": "ENVIRONMENT",
+        "autoUpdateSetting": "ENABLED",
+        "connectionStatus": "ONLINE",
+        "networkZone": "default",
+        "enabledModules": ["METRIC_API", "EXTENSION_CONTROLLER"]
+      }
+    ]
+  },
+  "misconfiguredByCapability": {},
+  "networkZones": { "default": 1 },
+  "activeGatesByNetworkZone": {
+    "default": [
+      {
+        "id": "AG-1",
+        "hostname": "ag-prod-01",
+        "networkAddresses": ["10.0.0.1"],
+        "osType": "LINUX",
+        "version": "1.295.0",
+        "latestForOs": "1.295.0",
+        "minorBehind": 0,
+        "type": "ENVIRONMENT",
+        "autoUpdateSetting": "ENABLED",
+        "connectionStatus": "ONLINE",
+        "networkZone": "default",
+        "enabledModules": ["METRIC_API", "EXTENSION_CONTROLLER"]
+      }
+    ]
+  },
+  "activeGatesWithoutNetworkZone": null,
+  "activeGatesByType": {
+    "ENVIRONMENT": [
+      {
+        "id": "AG-1",
+        "hostname": "ag-prod-01",
+        "networkAddresses": ["10.0.0.1"],
+        "osType": "LINUX",
+        "version": "1.295.0",
+        "latestForOs": "1.295.0",
+        "minorBehind": 0,
+        "type": "ENVIRONMENT",
+        "autoUpdateSetting": "ENABLED",
+        "connectionStatus": "ONLINE",
+        "networkZone": "default",
+        "enabledModules": ["METRIC_API", "EXTENSION_CONTROLLER"]
+      }
+    ]
+  },
+  "outdatedActiveGatesCount": 0,
+  "outdatedActiveGatesSample": null,
+  "activeGatesWithoutOsLatestReference": null
+}

@@ -1,0 +1,30 @@
+{
+  "hosts": [],
+  "processGroups": [
+    {
+      "id": "PROCESS_GROUP-AMB",
+      "displayName": "orders-svc"
+    }
+  ],
+  "processGroupInstances": [
+    {
+      "id": "PROCESS_GROUP_INSTANCE-AMB",
+      "displayName": "orders-svc",
+      "pgId": "PROCESS_GROUP-AMB",
+      "serviceIds": ["SERVICE-AMB"]
+    }
+  ],
+  "services": [
+    {
+      "id": "SERVICE-AMB",
+      "displayName": "HTTP",
+      "pgiIds": ["PROCESS_GROUP_INSTANCE-AMB"],
+      "endpoints": [
+        "GET /checkout/cart",
+        "POST /checkout/cart",
+        "GET /checkout/confirm",
+        "POST /checkout/confirm"
+      ]
+    }
+  ]
+}

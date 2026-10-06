@@ -1,0 +1,81 @@
+{
+  "totalActiveGates": 5,
+  "latestVersionsByOs": { "LINUX": "1.295.0", "WINDOWS": "1.295.0" },
+  "versions": { "1.295.0": 2, "1.288.0": 1, "1.270.0": 1, "1.290.0": 1 },
+  "types": { "ENVIRONMENT": 3, "CLUSTER": 1, "ENVIRONMENT_MULTI": 1 },
+  "autoUpdateSettings": { "ENABLED": 5 },
+  "connectionStatuses": { "ONLINE": 4, "OFFLINE": 1 },
+  "osTypes": { "LINUX": 3, "AIX": 1, "WINDOWS": 1 },
+  "notConnectedCount": 1,
+  "misconfiguredModuleCount": 2,
+  "byCapability": {
+    "METRIC_API": 4,
+    "EXTENSION_CONTROLLER": 1,
+    "BEACON_FORWARDER": 1,
+    "REST_API": 1,
+    "KUBERNETES": 1
+  },
+  "activeGatesByCapability": {
+    "METRIC_API": [
+      { "id": "AG-1", "hostname": "ag-prod-01", "networkAddresses": ["10.0.0.1"], "osType": "LINUX", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["METRIC_API", "EXTENSION_CONTROLLER"] },
+      { "id": "AG-2", "hostname": "ag-prod-02", "networkAddresses": ["10.0.0.2"], "osType": "LINUX", "version": "1.288.0", "latestForOs": "1.295.0", "minorBehind": 7, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["METRIC_API", "BEACON_FORWARDER"], "misconfiguredModules": ["BEACON_FORWARDER"] },
+      { "id": "AG-3", "hostname": "ag-east-01", "networkAddresses": ["10.1.0.1"], "osType": "LINUX", "version": "1.270.0", "latestForOs": "1.295.0", "minorBehind": 25, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "OFFLINE", "networkZone": "us-east-prod", "enabledModules": ["METRIC_API"], "misconfiguredModules": ["METRIC_API"] },
+      { "id": "AG-5", "hostname": "ag-multi-win", "networkAddresses": ["10.0.0.5"], "osType": "WINDOWS", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "type": "ENVIRONMENT_MULTI", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["KUBERNETES", "METRIC_API"] }
+    ],
+    "EXTENSION_CONTROLLER": [
+      { "id": "AG-1", "hostname": "ag-prod-01", "networkAddresses": ["10.0.0.1"], "osType": "LINUX", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["METRIC_API", "EXTENSION_CONTROLLER"] }
+    ],
+    "BEACON_FORWARDER": [
+      { "id": "AG-2", "hostname": "ag-prod-02", "networkAddresses": ["10.0.0.2"], "osType": "LINUX", "version": "1.288.0", "latestForOs": "1.295.0", "minorBehind": 7, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["METRIC_API", "BEACON_FORWARDER"], "misconfiguredModules": ["BEACON_FORWARDER"] }
+    ],
+    "REST_API": [
+      { "id": "AG-4", "hostname": "ag-legacy-aix", "networkAddresses": ["10.2.0.1"], "osType": "AIX", "version": "1.290.0", "minorBehind": 0, "type": "CLUSTER", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "enabledModules": ["REST_API"] }
+    ],
+    "KUBERNETES": [
+      { "id": "AG-5", "hostname": "ag-multi-win", "networkAddresses": ["10.0.0.5"], "osType": "WINDOWS", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "type": "ENVIRONMENT_MULTI", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["KUBERNETES", "METRIC_API"] }
+    ]
+  },
+  "misconfiguredByCapability": {
+    "BEACON_FORWARDER": [
+      { "id": "AG-2", "hostname": "ag-prod-02", "networkAddresses": ["10.0.0.2"], "osType": "LINUX", "version": "1.288.0", "latestForOs": "1.295.0", "minorBehind": 7, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["METRIC_API", "BEACON_FORWARDER"], "misconfiguredModules": ["BEACON_FORWARDER"] }
+    ],
+    "METRIC_API": [
+      { "id": "AG-3", "hostname": "ag-east-01", "networkAddresses": ["10.1.0.1"], "osType": "LINUX", "version": "1.270.0", "latestForOs": "1.295.0", "minorBehind": 25, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "OFFLINE", "networkZone": "us-east-prod", "enabledModules": ["METRIC_API"], "misconfiguredModules": ["METRIC_API"] }
+    ]
+  },
+  "networkZones": { "default": 3, "us-east-prod": 1 },
+  "activeGatesByNetworkZone": {
+    "default": [
+      { "id": "AG-1", "hostname": "ag-prod-01", "networkAddresses": ["10.0.0.1"], "osType": "LINUX", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["METRIC_API", "EXTENSION_CONTROLLER"] },
+      { "id": "AG-2", "hostname": "ag-prod-02", "networkAddresses": ["10.0.0.2"], "osType": "LINUX", "version": "1.288.0", "latestForOs": "1.295.0", "minorBehind": 7, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["METRIC_API", "BEACON_FORWARDER"], "misconfiguredModules": ["BEACON_FORWARDER"] },
+      { "id": "AG-5", "hostname": "ag-multi-win", "networkAddresses": ["10.0.0.5"], "osType": "WINDOWS", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "type": "ENVIRONMENT_MULTI", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["KUBERNETES", "METRIC_API"] }
+    ],
+    "us-east-prod": [
+      { "id": "AG-3", "hostname": "ag-east-01", "networkAddresses": ["10.1.0.1"], "osType": "LINUX", "version": "1.270.0", "latestForOs": "1.295.0", "minorBehind": 25, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "OFFLINE", "networkZone": "us-east-prod", "enabledModules": ["METRIC_API"], "misconfiguredModules": ["METRIC_API"] }
+    ]
+  },
+  "activeGatesWithoutNetworkZone": [
+    { "id": "AG-4", "hostname": "ag-legacy-aix", "networkAddresses": ["10.2.0.1"], "osType": "AIX", "version": "1.290.0", "minorBehind": 0, "type": "CLUSTER", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "enabledModules": ["REST_API"] }
+  ],
+  "activeGatesByType": {
+    "ENVIRONMENT": [
+      { "id": "AG-1", "hostname": "ag-prod-01", "networkAddresses": ["10.0.0.1"], "osType": "LINUX", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["METRIC_API", "EXTENSION_CONTROLLER"] },
+      { "id": "AG-2", "hostname": "ag-prod-02", "networkAddresses": ["10.0.0.2"], "osType": "LINUX", "version": "1.288.0", "latestForOs": "1.295.0", "minorBehind": 7, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["METRIC_API", "BEACON_FORWARDER"], "misconfiguredModules": ["BEACON_FORWARDER"] },
+      { "id": "AG-3", "hostname": "ag-east-01", "networkAddresses": ["10.1.0.1"], "osType": "LINUX", "version": "1.270.0", "latestForOs": "1.295.0", "minorBehind": 25, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "OFFLINE", "networkZone": "us-east-prod", "enabledModules": ["METRIC_API"], "misconfiguredModules": ["METRIC_API"] }
+    ],
+    "CLUSTER": [
+      { "id": "AG-4", "hostname": "ag-legacy-aix", "networkAddresses": ["10.2.0.1"], "osType": "AIX", "version": "1.290.0", "minorBehind": 0, "type": "CLUSTER", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "enabledModules": ["REST_API"] }
+    ],
+    "ENVIRONMENT_MULTI": [
+      { "id": "AG-5", "hostname": "ag-multi-win", "networkAddresses": ["10.0.0.5"], "osType": "WINDOWS", "version": "1.295.0", "latestForOs": "1.295.0", "minorBehind": 0, "type": "ENVIRONMENT_MULTI", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["KUBERNETES", "METRIC_API"] }
+    ]
+  },
+  "outdatedActiveGatesCount": 2,
+  "outdatedActiveGatesSample": [
+    { "id": "AG-2", "hostname": "ag-prod-02", "networkAddresses": ["10.0.0.2"], "osType": "LINUX", "version": "1.288.0", "latestForOs": "1.295.0", "minorBehind": 7, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "networkZone": "default", "enabledModules": ["METRIC_API", "BEACON_FORWARDER"], "misconfiguredModules": ["BEACON_FORWARDER"] },
+    { "id": "AG-3", "hostname": "ag-east-01", "networkAddresses": ["10.1.0.1"], "osType": "LINUX", "version": "1.270.0", "latestForOs": "1.295.0", "minorBehind": 25, "type": "ENVIRONMENT", "autoUpdateSetting": "ENABLED", "connectionStatus": "OFFLINE", "networkZone": "us-east-prod", "enabledModules": ["METRIC_API"], "misconfiguredModules": ["METRIC_API"] }
+  ],
+  "activeGatesWithoutOsLatestReference": [
+    { "id": "AG-4", "hostname": "ag-legacy-aix", "networkAddresses": ["10.2.0.1"], "osType": "AIX", "version": "1.290.0", "minorBehind": 0, "type": "CLUSTER", "autoUpdateSetting": "ENABLED", "connectionStatus": "ONLINE", "enabledModules": ["REST_API"] }
+  ]
+}

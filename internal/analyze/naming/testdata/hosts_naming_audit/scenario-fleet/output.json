@@ -1,0 +1,83 @@
+{
+  "reports": [
+    {
+      "entityId": "HOST-FLEET-1",
+      "entityType": "HOST",
+      "currentName": "ip-10-0-4-1",
+      "genericReason": "name matches a cloud-provider default pattern",
+      "candidates": [
+        {
+          "source": "fleet.match",
+          "name": "orders-api",
+          "confidence": 0.85,
+          "evidence": "3 hosts run the same PG set; fleet name from first member"
+        },
+        {
+          "source": "top-n.app.pg",
+          "name": "orders-sidecar",
+          "confidence": 0.55,
+          "evidence": "one of 2 app PGs on this host: orders-sidecar"
+        }
+      ],
+      "topCandidate": "orders-api",
+      "decision": "high_confidence"
+    },
+    {
+      "entityId": "HOST-FLEET-2",
+      "entityType": "HOST",
+      "currentName": "ip-10-0-4-2",
+      "genericReason": "name matches a cloud-provider default pattern",
+      "candidates": [
+        {
+          "source": "fleet.match",
+          "name": "orders-api",
+          "confidence": 0.85,
+          "evidence": "3 hosts run the same PG set; fleet name from first member"
+        },
+        {
+          "source": "top-n.app.pg",
+          "name": "orders-sidecar",
+          "confidence": 0.55,
+          "evidence": "one of 2 app PGs on this host: orders-sidecar"
+        }
+      ],
+      "topCandidate": "orders-api",
+      "decision": "high_confidence"
+    },
+    {
+      "entityId": "HOST-FLEET-3",
+      "entityType": "HOST",
+      "currentName": "ip-10-0-4-3",
+      "genericReason": "name matches a cloud-provider default pattern",
+      "candidates": [
+        {
+          "source": "fleet.match",
+          "name": "orders-api",
+          "confidence": 0.85,
+          "evidence": "3 hosts run the same PG set; fleet name from first member"
+        },
+        {
+          "source": "top-n.app.pg",
+          "name": "orders-sidecar",
+          "confidence": 0.55,
+          "evidence": "one of 2 app PGs on this host: orders-sidecar"
+        }
+      ],
+      "topCandidate": "orders-api",
+      "decision": "high_confidence"
+    }
+  ],
+  "counts": {
+    "totalHosts": 3,
+    "generic": 3,
+    "highConfidence": 3,
+    "ambiguous": 0,
+    "noSignal": 0
+  },
+  "appliedDefaults": {
+    "highConfidenceMin": 0.80,
+    "highConfidenceGap": 0.20,
+    "ambiguousMin": 0.40,
+    "maxCandidates": 5
+  }
+}

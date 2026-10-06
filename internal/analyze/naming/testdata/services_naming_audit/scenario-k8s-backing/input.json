@@ -1,0 +1,27 @@
+{
+  "hosts": [],
+  "processGroups": [
+    {
+      "id": "PROCESS_GROUP-K8S",
+      "displayName": "java"
+    }
+  ],
+  "processGroupInstances": [
+    {
+      "id": "PROCESS_GROUP_INSTANCE-K8S",
+      "displayName": "java",
+      "pgId": "PROCESS_GROUP-K8S",
+      "serviceIds": ["SERVICE-K8S"],
+      "properties": {
+        "KubernetesContainerName": "checkout-api"
+      }
+    }
+  ],
+  "services": [
+    {
+      "id": "SERVICE-K8S",
+      "displayName": "Requests executed in HTTP",
+      "pgiIds": ["PROCESS_GROUP_INSTANCE-K8S"]
+    }
+  ]
+}

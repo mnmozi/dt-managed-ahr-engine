@@ -1,0 +1,28 @@
+{
+  "totalHosts": 1,
+  "latestVersionsByOs": { "LINUX": "1.295.0" },
+  "versions": { "1.295.0": 1 },
+  "autoUpdateSettings": { "ENABLED": 1 },
+  "monitoringTypes": { "FULL_STACK": 1 },
+  "osTypes": { "LINUX": 1 },
+  "faultyVersionCount": 0,
+  "inactiveCount": 0,
+  "hostsByMonitoringType": {
+    "FULL_STACK": [
+      {
+        "hostName": "solo",
+        "entityId": "HOST-SOLO",
+        "osType": "LINUX",
+        "version": "1.295.0",
+        "latestForOs": "1.295.0",
+        "minorBehind": 0,
+        "autoUpdateSetting": "ENABLED",
+        "faultyVersion": false,
+        "active": true
+      }
+    ]
+  },
+  "outdatedHostsCount": 0,
+  "outdatedHostsSample": null,
+  "hostsWithoutOsLatestReference": null
+}

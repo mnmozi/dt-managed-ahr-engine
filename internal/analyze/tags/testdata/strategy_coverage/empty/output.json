@@ -1,0 +1,43 @@
+{
+  "achievableCoverage": 0,
+  "appliedDefaults": {
+    "scopeEntityTypes": [
+      "HOST",
+      "PROCESS_GROUP",
+      "PROCESS_GROUP_INSTANCE",
+      "SERVICE"
+    ]
+  },
+  "coveragePerKey": {
+    "team": {
+      "overall": {
+        "coverage": 0,
+        "covered": 0,
+        "uncovered": 0
+      },
+      "perType": {
+        "HOST": {
+          "coverage": 0,
+          "covered": 0,
+          "uncovered": 0
+        },
+        "PROCESS_GROUP": {
+          "coverage": 0,
+          "covered": 0,
+          "uncovered": 0
+        },
+        "PROCESS_GROUP_INSTANCE": {
+          "coverage": 0,
+          "covered": 0,
+          "uncovered": 0
+        },
+        "SERVICE": {
+          "coverage": 0,
+          "covered": 0,
+          "uncovered": 0
+        }
+      }
+    }
+  },
+  "uncoveredEntities": null
+}

@@ -1,0 +1,74 @@
+{
+  "activeGates": [
+    {
+      "id": "AG-1",
+      "hostname": "ag-prod-01",
+      "networkAddresses": ["10.0.0.1"],
+      "osType": "LINUX",
+      "version": "1.295.0",
+      "type": "ENVIRONMENT",
+      "autoUpdateSettings": { "effectiveSetting": "ENABLED" },
+      "connectionStatus": "ONLINE",
+      "networkZone": "default",
+      "modules": [
+        { "type": "METRIC_API", "enabled": true, "misconfigured": false },
+        { "type": "EXTENSION_CONTROLLER", "enabled": true, "misconfigured": false }
+      ]
+    },
+    {
+      "id": "AG-2",
+      "hostname": "ag-prod-02",
+      "networkAddresses": ["10.0.0.2"],
+      "osType": "LINUX",
+      "version": "1.288.0",
+      "type": "ENVIRONMENT",
+      "autoUpdateSettings": { "effectiveSetting": "ENABLED" },
+      "connectionStatus": "ONLINE",
+      "networkZone": "default",
+      "modules": [
+        { "type": "METRIC_API", "enabled": true, "misconfigured": false },
+        { "type": "BEACON_FORWARDER", "enabled": true, "misconfigured": true }
+      ]
+    },
+    {
+      "id": "AG-3",
+      "hostname": "ag-east-01",
+      "networkAddresses": ["10.1.0.1"],
+      "osType": "LINUX",
+      "version": "1.270.0",
+      "type": "ENVIRONMENT",
+      "autoUpdateSettings": { "effectiveSetting": "ENABLED" },
+      "connectionStatus": "OFFLINE",
+      "networkZone": "us-east-prod",
+      "modules": [
+        { "type": "METRIC_API", "enabled": true, "misconfigured": true }
+      ]
+    },
+    {
+      "id": "AG-4",
+      "hostname": "ag-legacy-aix",
+      "networkAddresses": ["10.2.0.1"],
+      "osType": "AIX",
+      "version": "1.290.0",
+      "type": "CLUSTER",
+      "autoUpdateSettings": { "effectiveSetting": "ENABLED" },
+      "connectionStatus": "ONLINE",
+      "modules": [
+        { "type": "REST_API", "enabled": true, "misconfigured": false }
+      ]
+    },
+    {
+      "id": "AG-5",
+      "hostname": "ag-multi-win",
+      "networkAddresses": ["10.0.0.5"],
+      "osType": "WINDOWS",
+      "version": "1.295.0",
+      "type": "ENVIRONMENT_MULTI",
+      "autoUpdateSettings": { "effectiveSetting": "ENABLED" },
+      "connectionStatus": "ONLINE",
+      "networkZone": "default",
+      "enabledModules": ["KUBERNETES", "METRIC_API"]
+    }
+  ],
+  "latestVersionsByOs": { "LINUX": "1.295.0", "WINDOWS": "1.295.0" }
+}

@@ -1,0 +1,17 @@
+{
+  "hosts": [{ "id": "HOST-1" }],
+  "processGroups": [{ "id": "PG-A", "hostId": "HOST-1" }],
+  "processGroupInstances": [
+    { "id": "PGI-A1", "hostId": "HOST-1", "pgId": "PG-A", "serviceIds": ["SVC-PAY-1", "SVC-PAY-2", "SVC-PAY-3", "SVC-UNTAGGED"] }
+  ],
+  "services": [
+    { "id": "SVC-PAY-1", "pgiIds": ["PGI-A1"], "callsServiceIds": ["SVC-UNTAGGED"], "tags": [{ "key": "team", "value": "payments" }] },
+    { "id": "SVC-PAY-2", "pgiIds": ["PGI-A1"], "callsServiceIds": ["SVC-UNTAGGED"], "tags": [{ "key": "team", "value": "payments" }] },
+    { "id": "SVC-PAY-3", "pgiIds": ["PGI-A1"], "callsServiceIds": ["SVC-UNTAGGED"], "tags": [{ "key": "team", "value": "payments" }] },
+    { "id": "SVC-UNTAGGED", "pgiIds": ["PGI-A1"] }
+  ],
+  "entitiesToProcess": [{ "id": "SVC-UNTAGGED" }],
+  "targetKeys": ["team"],
+  "existingTagValues": { "team": ["payments", "checkout"] },
+  "ownershipTeams": ["payments", "checkout"]
+}

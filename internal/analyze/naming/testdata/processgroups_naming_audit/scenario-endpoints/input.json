@@ -1,0 +1,30 @@
+{
+  "hosts": [],
+  "processGroups": [
+    {
+      "id": "PROCESS_GROUP-EP",
+      "displayName": "java"
+    }
+  ],
+  "processGroupInstances": [
+    {
+      "id": "PROCESS_GROUP_INSTANCE-EP",
+      "displayName": "java",
+      "pgId": "PROCESS_GROUP-EP",
+      "serviceIds": ["SERVICE-EP"]
+    }
+  ],
+  "services": [
+    {
+      "id": "SERVICE-EP",
+      "displayName": ":80",
+      "pgiIds": ["PROCESS_GROUP_INSTANCE-EP"],
+      "endpoints": [
+        "GET /api/v1/orders",
+        "GET /api/v1/orders/{id}",
+        "POST /api/v1/orders",
+        "GET /api/v1/orders/{id}/items"
+      ]
+    }
+  ]
+}

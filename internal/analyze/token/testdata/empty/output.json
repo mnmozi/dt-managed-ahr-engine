@@ -1,0 +1,30 @@
+{
+  "totalTokens": 0,
+  "scopeDistribution": {},
+  "ownerDistribution": {},
+  "findings": {
+    "noExpirationCount": 0,
+    "noExpirationSample": null,
+    "expiredCount": 0,
+    "expiredSample": null,
+    "neverUsedCount": 0,
+    "neverUsedSample": null,
+    "staleUsageCount": 0,
+    "staleUsageSample": null,
+    "highPrivilegeCount": 0,
+    "highPrivilegeSample": null,
+    "disabledCount": 0
+  },
+  "appliedDefaults": {
+    "staleUsageThresholdDays": 90,
+    "highPrivilegeScopes": [
+      "WriteConfig",
+      "settings.write",
+      "tenantTokenManagement.create",
+      "tenantTokenManagement.delete",
+      "credentialVault.write",
+      "TenantTokenRotationServiceAPI"
+    ],
+    "nowMillis": 1715000000000
+  }
+}

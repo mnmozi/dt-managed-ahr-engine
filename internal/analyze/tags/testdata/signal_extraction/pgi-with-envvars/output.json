@@ -1,0 +1,63 @@
+{
+  "appliedDefaults": {
+    "callGraphMajorityThreshold": 0.66,
+    "consensusMinConfidence": 0.7,
+    "consensusMinSources": 2,
+    "targetKeys": [
+      "team",
+      "application"
+    ]
+  },
+  "entities": [
+    {
+      "candidates": {
+        "team": [
+          {
+            "confidence": 1,
+            "factors": [
+              "parent-containment-tag",
+              "existing-tag-value-match",
+              "ownership-directory-match",
+              "multi-source-corroboration:2"
+            ],
+            "source": "graph:parentTag:HOST:HOST-1",
+            "value": "foo"
+          },
+          {
+            "confidence": 1,
+            "factors": [
+              "property-contains-match",
+              "existing-tag-value-match",
+              "ownership-directory-match",
+              "multi-source-corroboration:2"
+            ],
+            "source": "property:envVars:OWNING_TEAM",
+            "value": "foo"
+          }
+        ]
+      },
+      "consensus": {
+        "team": {
+          "confidence": 1,
+          "contributingSources": [
+            "graph:parentTag:HOST:HOST-1",
+            "property:envVars:OWNING_TEAM"
+          ],
+          "sourceCount": 2,
+          "value": "foo"
+        }
+      },
+      "entityId": "PGI-A1",
+      "type": "PROCESS_GROUP_INSTANCE"
+    }
+  ],
+  "summary": {
+    "consensusCountByKey": {
+      "team": 1
+    },
+    "entitiesWithCandidates": 1,
+    "entitiesWithConsensus": 1,
+    "entitiesWithNoCandidates": 0,
+    "processedEntities": 1
+  }
+}

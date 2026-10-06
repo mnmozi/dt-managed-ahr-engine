@@ -1,0 +1,20 @@
+{
+  "hostsWithoutGroup": [],
+  "splitFleets": [],
+  "singleMemberLikelyTypos": [],
+  "genericGroupNames": [],
+  "namingDrift": [],
+  "counts": {
+    "totalHosts": 0,
+    "totalHostGroups": 0,
+    "hostsWithoutGroup": 0,
+    "splitFleets": 0,
+    "singleMemberLikelyTypos": 0,
+    "genericGroupNames": 0,
+    "namingDriftClusters": 0
+  },
+  "appliedDefaults": {
+    "minFleetSize": 2,
+    "maxEditDistance": 2
+  }
+}

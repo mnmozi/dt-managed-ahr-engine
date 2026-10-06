@@ -1,0 +1,191 @@
+{
+  "appliedDefaults": {
+    "graphMode": "none",
+    "lowTagThreshold": 1
+  },
+  "entitiesByType": {
+    "HOST": {
+      "total": 4,
+      "withLowTags": 2,
+      "withZeroTags": 1
+    },
+    "PROCESS_GROUP": {
+      "total": 3,
+      "withLowTags": 3,
+      "withZeroTags": 2
+    },
+    "PROCESS_GROUP_INSTANCE": {
+      "total": 3,
+      "withLowTags": 3,
+      "withZeroTags": 3
+    },
+    "SERVICE": {
+      "total": 3,
+      "withLowTags": 3,
+      "withZeroTags": 2
+    }
+  },
+  "keySimilarityClusters": [],
+  "keys": [
+    {
+      "contextDistribution": {
+        "AUTO_TAG": 3,
+        "CONTEXTLESS": 1
+      },
+      "coverage": {
+        "HOST": 0.5,
+        "PROCESS_GROUP": 0.33,
+        "PROCESS_GROUP_INSTANCE": 0,
+        "SERVICE": 0.33
+      },
+      "distinctValues": [
+        "Foo",
+        "foo"
+      ],
+      "key": "team",
+      "sourcingRuleIds": [
+        "rule-team"
+      ],
+      "topValues": [
+        {
+          "count": 3,
+          "value": "foo"
+        },
+        {
+          "count": 1,
+          "value": "Foo"
+        }
+      ],
+      "totalOccurrences": 4,
+      "valueFormatIssues": [
+        {
+          "groups": [
+            [
+              "Foo",
+              "foo"
+            ]
+          ],
+          "type": "case_drift"
+        }
+      ],
+      "valueFormatJudgment": "messy"
+    },
+    {
+      "contextDistribution": {
+        "AUTO_TAG": 3
+      },
+      "coverage": {
+        "HOST": 0.75,
+        "PROCESS_GROUP": 0,
+        "PROCESS_GROUP_INSTANCE": 0,
+        "SERVICE": 0
+      },
+      "distinctValues": [
+        "prod",
+        "staging"
+      ],
+      "key": "env",
+      "sourcingRuleIds": [
+        "rule-env"
+      ],
+      "topValues": [
+        {
+          "count": 2,
+          "value": "prod"
+        },
+        {
+          "count": 1,
+          "value": "staging"
+        }
+      ],
+      "totalOccurrences": 3,
+      "valueFormatJudgment": "uniform"
+    }
+  ],
+  "lowTagEntities": {
+    "HOST": [
+      {
+        "displayName": "stg-db-01",
+        "entityId": "HOST-3",
+        "tagCount": 1
+      },
+      {
+        "displayName": "untagged-host",
+        "entityId": "HOST-4",
+        "tagCount": 0
+      }
+    ],
+    "PROCESS_GROUP": [
+      {
+        "entityId": "PG-A",
+        "tagCount": 1
+      },
+      {
+        "entityId": "PG-B",
+        "tagCount": 0
+      },
+      {
+        "entityId": "PG-C",
+        "tagCount": 0
+      }
+    ],
+    "PROCESS_GROUP_INSTANCE": [
+      {
+        "entityId": "PGI-A1",
+        "tagCount": 0
+      },
+      {
+        "entityId": "PGI-B1",
+        "tagCount": 0
+      },
+      {
+        "entityId": "PGI-C1",
+        "tagCount": 0
+      }
+    ],
+    "SERVICE": [
+      {
+        "displayName": "checkout-api",
+        "entityId": "SVC-X",
+        "tagCount": 1
+      },
+      {
+        "displayName": "payment-api",
+        "entityId": "SVC-Y",
+        "tagCount": 0
+      },
+      {
+        "displayName": "db-proxy",
+        "entityId": "SVC-Z",
+        "tagCount": 0
+      }
+    ]
+  },
+  "propagationHints": [
+    {
+      "callGraphHint": "1 untagged services have at least one call-graph neighbor tagged with \"team\" — likely inheritable via auto-tag rule",
+      "fullyCoveredOn": null,
+      "key": "team",
+      "partiallyCoveredOn": [
+        "HOST",
+        "PROCESS_GROUP",
+        "SERVICE"
+      ],
+      "uncoveredOn": [
+        "PROCESS_GROUP_INSTANCE"
+      ]
+    },
+    {
+      "fullyCoveredOn": null,
+      "key": "env",
+      "partiallyCoveredOn": [
+        "HOST"
+      ],
+      "uncoveredOn": [
+        "PROCESS_GROUP",
+        "PROCESS_GROUP_INSTANCE",
+        "SERVICE"
+      ]
+    }
+  ]
+}

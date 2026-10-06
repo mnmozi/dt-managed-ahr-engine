@@ -1,0 +1,33 @@
+{
+  "reports": [
+    {
+      "entityId": "SERVICE-EP",
+      "entityType": "SERVICE",
+      "currentName": ":80",
+      "genericReason": "name is only a port number",
+      "candidates": [
+        {
+          "source": "backed.service.endpoint",
+          "name": "orders",
+          "confidence": 0.72,
+          "evidence": "service SERVICE-EP: path segment 'orders' in 4/4 endpoints"
+        }
+      ],
+      "topCandidate": "orders",
+      "decision": "ambiguous"
+    }
+  ],
+  "counts": {
+    "totalServices": 1,
+    "generic": 1,
+    "highConfidence": 0,
+    "ambiguous": 1,
+    "noSignal": 0
+  },
+  "appliedDefaults": {
+    "highConfidenceMin": 0.80,
+    "highConfidenceGap": 0.20,
+    "ambiguousMin": 0.40,
+    "maxCandidates": 5
+  }
+}

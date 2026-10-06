@@ -1,0 +1,135 @@
+{
+  "appliedDefaults": {
+    "graphMode": "none",
+    "lowTagThreshold": 1
+  },
+  "entitiesByType": {
+    "HOST": {
+      "total": 6,
+      "withLowTags": 6,
+      "withZeroTags": 0
+    },
+    "PROCESS_GROUP": {
+      "total": 0,
+      "withLowTags": 0,
+      "withZeroTags": 0
+    },
+    "PROCESS_GROUP_INSTANCE": {
+      "total": 0,
+      "withLowTags": 0,
+      "withZeroTags": 0
+    },
+    "SERVICE": {
+      "total": 0,
+      "withLowTags": 0,
+      "withZeroTags": 0
+    }
+  },
+  "keySimilarityClusters": [],
+  "keys": [
+    {
+      "contextDistribution": {
+        "UNKNOWN": 6
+      },
+      "coverage": {
+        "HOST": 1
+      },
+      "distinctValues": [
+        "FOO",
+        "Foo",
+        "bar",
+        "foo",
+        "foo-team",
+        "foo_team"
+      ],
+      "key": "team",
+      "topValues": [
+        {
+          "count": 1,
+          "value": "FOO"
+        },
+        {
+          "count": 1,
+          "value": "Foo"
+        },
+        {
+          "count": 1,
+          "value": "bar"
+        },
+        {
+          "count": 1,
+          "value": "foo"
+        },
+        {
+          "count": 1,
+          "value": "foo-team"
+        },
+        {
+          "count": 1,
+          "value": "foo_team"
+        }
+      ],
+      "totalOccurrences": 6,
+      "valueFormatIssues": [
+        {
+          "groups": [
+            [
+              "FOO",
+              "Foo",
+              "foo"
+            ]
+          ],
+          "type": "case_drift"
+        },
+        {
+          "groups": [
+            [
+              "foo-team",
+              "foo_team"
+            ]
+          ],
+          "type": "separator_drift"
+        }
+      ],
+      "valueFormatJudgment": "messy"
+    }
+  ],
+  "lowTagEntities": {
+    "HOST": [
+      {
+        "entityId": "HOST-1",
+        "tagCount": 1
+      },
+      {
+        "entityId": "HOST-2",
+        "tagCount": 1
+      },
+      {
+        "entityId": "HOST-3",
+        "tagCount": 1
+      },
+      {
+        "entityId": "HOST-4",
+        "tagCount": 1
+      },
+      {
+        "entityId": "HOST-5",
+        "tagCount": 1
+      },
+      {
+        "entityId": "HOST-6",
+        "tagCount": 1
+      }
+    ]
+  },
+  "propagationHints": [
+    {
+      "fullyCoveredOn": [
+        "HOST"
+      ],
+      "key": "team",
+      "partiallyCoveredOn": null,
+      "uncoveredOn": null
+    }
+  ]
+}

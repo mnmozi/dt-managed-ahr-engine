@@ -1,0 +1,45 @@
+{
+  "hosts": [
+    {
+      "id": "HOST-HEALTHY",
+      "displayName": "orders-api-01"
+    },
+    {
+      "id": "HOST-AWS-HIGH",
+      "displayName": "ip-10-0-1-23",
+      "properties": {
+        "awsTags": [
+          { "key": "Name", "value": "orders-api" }
+        ]
+      }
+    },
+    {
+      "id": "HOST-DOMINANT-PG",
+      "displayName": "localhost"
+    },
+    {
+      "id": "HOST-BASTION",
+      "displayName": "ip-10-0-3-1"
+    }
+  ],
+  "processGroups": [
+    {
+      "id": "PG-BILLING",
+      "displayName": "billing-api",
+      "hostId": "HOST-DOMINANT-PG",
+      "properties": {
+        "softwareTechnologies": [{"type": "JAVA"}]
+      }
+    },
+    {
+      "id": "PG-SSHD",
+      "displayName": "sshd",
+      "hostId": "HOST-BASTION",
+      "properties": {
+        "softwareTechnologies": [{"type": "SSHD"}]
+      }
+    }
+  ],
+  "processGroupInstances": [],
+  "services": []
+}

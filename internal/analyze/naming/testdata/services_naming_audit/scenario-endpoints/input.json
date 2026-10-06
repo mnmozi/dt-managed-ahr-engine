@@ -1,0 +1,17 @@
+{
+  "hosts": [],
+  "processGroups": [],
+  "processGroupInstances": [],
+  "services": [
+    {
+      "id": "SERVICE-EP",
+      "displayName": ":80",
+      "endpoints": [
+        "GET /api/v1/orders",
+        "GET /api/v1/orders/{id}",
+        "POST /api/v1/orders",
+        "GET /api/v1/orders/{id}/items"
+      ]
+    }
+  ]
+}

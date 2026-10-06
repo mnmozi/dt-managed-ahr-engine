@@ -1,0 +1,77 @@
+{
+  "hostsWithoutGroup": [
+    {
+      "hostId": "HOST-NOGROUP",
+      "displayName": "host-nogroup",
+      "fleetSuggestion": "orders-api",
+      "evidence": "fleet match with 6 hosts already in 'orders-api'"
+    }
+  ],
+  "splitFleets": [
+    {
+      "fleetKey": "117d16480bc550b1",
+      "memberCount": 8,
+      "currentDistribution": {
+        "orders-api": 6,
+        "orders-apii": 1,
+        "<none>": 1
+      },
+      "suggestedGroup": "orders-api",
+      "hostsToReassign": [
+        {
+          "hostId": "HOST-NOGROUP",
+          "displayName": "host-nogroup",
+          "newGroup": "orders-api",
+          "reason": "split fleet — 6 of 8 fleet-mates already in 'orders-api'"
+        },
+        {
+          "hostId": "HOST-TYPO",
+          "displayName": "host-typo",
+          "currentGroup": "orders-apii",
+          "newGroup": "orders-api",
+          "reason": "split fleet — 6 of 8 fleet-mates already in 'orders-api'"
+        }
+      ]
+    }
+  ],
+  "singleMemberLikelyTypos": [
+    {
+      "groupName": "orders-apii",
+      "memberCount": 1,
+      "nearestPopulatedGroup": "orders-api",
+      "nearestMemberCount": 6,
+      "editDistance": 1
+    }
+  ],
+  "genericGroupNames": [
+    {
+      "groupName": "default",
+      "memberCount": 1,
+      "reason": "default placeholder name"
+    }
+  ],
+  "namingDrift": [
+    {
+      "normalized": "ordersprod",
+      "variants": ["Orders-Prod", "orders-prod"],
+      "totalMembers": 2,
+      "perVariantCounts": {
+        "Orders-Prod": 1,
+        "orders-prod": 1
+      }
+    }
+  ],
+  "counts": {
+    "totalHosts": 11,
+    "totalHostGroups": 5,
+    "hostsWithoutGroup": 1,
+    "splitFleets": 1,
+    "singleMemberLikelyTypos": 1,
+    "genericGroupNames": 1,
+    "namingDriftClusters": 1
+  },
+  "appliedDefaults": {
+    "minFleetSize": 2,
+    "maxEditDistance": 2
+  }
+}

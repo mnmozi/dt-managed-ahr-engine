@@ -1,0 +1,45 @@
+{
+  "reports": [
+    {
+      "entityId": "PROCESS_GROUP-GRAPH",
+      "entityType": "PROCESS_GROUP",
+      "currentName": "java",
+      "genericReason": "name is a bare technology / runtime",
+      "candidates": [
+        {
+          "source": "pgi.k8s.container",
+          "name": "checkout-worker",
+          "confidence": 0.88,
+          "evidence": "child PGI PROCESS_GROUP_INSTANCE-GRAPH KubernetesContainerName=checkout-worker"
+        },
+        {
+          "source": "backed.service",
+          "name": "checkout-service",
+          "confidence": 0.80,
+          "evidence": "backs service SERVICE-GRAPH (checkout-service)"
+        },
+        {
+          "source": "host.context",
+          "name": "orders-prod-01",
+          "confidence": 0.45,
+          "evidence": "runs on host HOST-GRAPH (orders-prod-01)"
+        }
+      ],
+      "topCandidate": "checkout-worker",
+      "decision": "ambiguous"
+    }
+  ],
+  "counts": {
+    "totalProcessGroups": 1,
+    "generic": 1,
+    "highConfidence": 0,
+    "ambiguous": 1,
+    "noSignal": 0
+  },
+  "appliedDefaults": {
+    "highConfidenceMin": 0.80,
+    "highConfidenceGap": 0.20,
+    "ambiguousMin": 0.40,
+    "maxCandidates": 5
+  }
+}
